@@ -6,7 +6,7 @@
 
 	<div id="logo">
 		<a>
-			<img alt="Brand_logo" src="">
+			<img alt="Brand_logo" src="imgs/logo/BBread_Logo.png" >
 		</a>
 	</div>
 	

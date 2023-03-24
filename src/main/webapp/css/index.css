@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+*{
+	margin : 0 auto;
+	padding : 0;
+	list-style: none;
+	font-family : 'TheJamsil5Bold';
+	color : #3B3B3B;
+}
+
+html, body{
+	width : 100%;
+	height : 100%;
+	background-color: #ffffff;
+	font-size : 20px;
+}
+
+section{
+	width:100%;
+	height: 100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+#wrap{
+	max-width : 1000px;
+	width : 100%;
+	height : 100%;
+	display: grid;
+	grid-template-rows: 1fr 8fr 1fr;
+}
+
+/* Header start  */
+header{
+	width : 100%;
+	display : grid;
+	padding : 19px 0;
+	grid-template-columns: 2fr 8fr;	
+}
+header #logo img{
+	width:97px;
+	height: 85px;
+}
+header #menu_wrap{
+	width: 100%;
+	display : flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+}
+header ul{
+	display : flex;
+}
+
+#member_menu{
+	width: 100%;
+}
+
+#member_menu ul{
+	float: right;
+	justify-content: space-around;
+}
+
+#member_menu ul li{
+	font-size: 15px;
+	margin-left: 20px;
+}
+
+#product_menu{
+	width: 100%;
+}
+
+#product_menu ul{
+	float: right;
+	justify-content: space-around;
+}
+
+#product_menu ul li{
+	color : red;
+	font-size: 18px;
+	margin-left: 20px;
+	
+}
+
+/* Header end  */
+
+
