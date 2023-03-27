@@ -1,18 +1,33 @@
 @charset "UTF-8";
 
-@font-face {
-    font-family: 'TheJamsil5Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+/* Font Settings  */
+@font-face{
+    font-family:'Jamsil-B';
+    src : url("font/The-Jamsil-Bold.woff") format("woff");
 }
+
+@font-face{
+    font-family:'Jamsil-M';
+    src : url("font/The-Jamsil-Medium.woff") format("woff");
+}
+
+@font-face{
+    font-family:'Jamsil-R';
+    src : url("font/The-Jamsil-Regular.woff") format("woff");
+}
+
+@font-face{
+    font-family:'Jamsil-L';
+    src : url("font/The-Jamsil-Light.woff") format("woff");
+}
+
 
 
 *{
 	margin : 0 auto;
 	padding : 0;
 	list-style: none;
-	font-family : 'TheJamsil5Bold';
+	font-family: 'Jamsil-R';
 	color : #3B3B3B;
 }
 
