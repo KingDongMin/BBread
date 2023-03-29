@@ -17,8 +17,16 @@
 				<c:if test ="${Mvo != null}">
 					<li><a href="BBreadServlet?command=My_page">My Page</a></li>
 				</c:if>
-				<li><a href="BBreadServlet?command=login_page">Login</a></li>
-				<!-- 로그인 페이지에서 회원가입 페이지 링크 만들기? -->
+				
+				<c:choose>
+					<c:when test="${Mvo == null }">
+						<li><a href="BBreadServlet?command=login_page">Login</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="BBreadServlet?command=logout">Logout</a></li>
+					</c:otherwise>
+				</c:choose>
+
 				<li>Cart</li>
 				<li>Q&A</li>
 			</ul>

@@ -27,6 +27,7 @@ public class LoginAction implements Action {
 			HttpSession session = request.getSession();
 			session.setAttribute("Mvo",loginVo);
 			new MainPageAction().execute(request, response);
+			request.setAttribute("message", "로그인 성공");
 
 		}else{
 			request.setAttribute("message", "로그인 실패");

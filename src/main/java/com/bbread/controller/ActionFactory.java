@@ -3,6 +3,7 @@ package com.bbread.controller;
 import com.bbread.action.Action;
 import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
+import com.bbread.action.LogoutAction;
 import com.bbread.action.MyUpdateAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
@@ -34,6 +35,8 @@ public class ActionFactory {
 			action = new MyPageAction();
 		}else if("update_member".equals(command)) {
 			action = new MyUpdateAction();
+		}else if("logout".equals(command)) {
+			action = new LogoutAction();
 		}
 
 		return action;
