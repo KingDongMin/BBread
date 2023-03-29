@@ -22,6 +22,7 @@
 				
 				<c:if test="${Avo != null }">
 					<li style="color:red;">관리자 접속 : ${Avo.name}</li>
+					<li><a href="BBreadServlet?command=AddProduct_page">Add Product</a></li>
 				</c:if>
 				
 				<c:choose>

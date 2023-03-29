@@ -5,6 +5,7 @@ import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
 import com.bbread.action.LogoutAction;
 import com.bbread.action.MyUpdateAction;
+import com.bbread.action.page.AddProductPageAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
@@ -37,6 +38,8 @@ public class ActionFactory {
 			action = new MyUpdateAction();
 		}else if("logout".equals(command)) {
 			action = new LogoutAction();
+		}else if("AddProduct_page".equals(command)) {
+			action = new AddProductPageAction();
 		}
 
 		return action;
