@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- 해더 컴포넌트  -->
 <header>
@@ -13,8 +14,10 @@
 	<div id="menu_wrap">
 		<nav id="member_menu">
 			<ul>
-				<li>MyPage</li>
-				<li>Login</li>
+				<c:if test ="${Mvo != null}">
+					<li>MyPage</li>
+				</c:if>
+				<li><a href="BBreadServlet?command=login_page">Login</a></li>
 				<!-- 로그인 페이지에서 회원가입 페이지 링크 만들기? -->
 				<li>Cart</li>
 				<li>Q & A</li>

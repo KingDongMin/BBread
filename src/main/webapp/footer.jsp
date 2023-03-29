@@ -5,7 +5,7 @@
 
 	<div id="copy">
 		<p>All contents Copyright 2023 BBread Inc. all rights reserved.</p>
-		<p>This page does not actually provide any service.</p>
+		<p>This page does not provide any real service.</p>
 		<p>Creator : Kim Dong Min</p>
 		<a>Contact Link</a>
 	</div>

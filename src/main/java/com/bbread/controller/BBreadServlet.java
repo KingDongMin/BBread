@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bbread.action.Action;
+
 /**
  * Servlet implementation class BBreadServlet
  */
@@ -22,8 +24,15 @@ public class BBreadServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String command = request.getParameter("command");
-		System.out.print(command);
+		System.out.print(command+" --> ");
+		
+		ActionFactory af = ActionFactory.getInstance();
+		Action action = af.getAction(command);
+		if(action != null) {
+			action.execute(request, response);
+		}
 	}
 
 

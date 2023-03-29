@@ -136,3 +136,10 @@ section{
 	padding : 1rem;
 }
 
+.input_button{
+	padding :  0.4rem 1.2rem;
+	background-color:transparent;
+	border-radius: 5px;
+	cursor: pointer;
+}
+

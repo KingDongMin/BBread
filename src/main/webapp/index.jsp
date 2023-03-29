@@ -15,33 +15,13 @@
 	<div id="wrap">
 		<!-- Header Section -->
 		<c:import url="header.jsp"></c:import>
+		
+		<!-- outlet Pages Section -->
 		<section>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
-			<h1>main</h1>
-			<h1>한글</h1>
-			<p class="test" >테스트 문구</p>
+			
 
 		</section>
+		
 		<!-- Footer Section  -->
 		<c:import url="footer.jsp"></c:import>
 	</div>
