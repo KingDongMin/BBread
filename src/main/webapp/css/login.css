@@ -47,3 +47,7 @@ label{
 a{
 	font-size: 15px;
 }
+
+input[type=password]{
+	font-family: 'NanumSquare';
+}

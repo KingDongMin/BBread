@@ -54,7 +54,7 @@ public class MemberDAO {
 			pstmt.setString(2, pw);
 			
 			rs = pstmt.executeQuery();
-			if(rs != null) {
+			while(rs.next()) {
 				vo = new MemberVO();
 				vo.setId(rs.getString("id"));
 				vo.setPw(rs.getString("pass"));
@@ -70,6 +70,34 @@ public class MemberDAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return vo;
-		
 	}
+	
+	public boolean updateMember(MemberVO vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member set pass=?, name=?, email=?, address=?, phone=? where id=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getPw());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getAddress());
+			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(6, vo.getId());
+			
+			
+			result = pstmt.executeUpdate();
+			System.out.println("psmt 업데이트 결과 : " +result);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return result == 1 ? true:false;
+	}
+	
 }

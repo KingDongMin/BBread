@@ -15,12 +15,12 @@
 		<nav id="member_menu">
 			<ul>
 				<c:if test ="${Mvo != null}">
-					<li>MyPage</li>
+					<li><a href="BBreadServlet?command=My_page">My Page</a></li>
 				</c:if>
 				<li><a href="BBreadServlet?command=login_page">Login</a></li>
 				<!-- 로그인 페이지에서 회원가입 페이지 링크 만들기? -->
 				<li>Cart</li>
-				<li>Q & A</li>
+				<li>Q&A</li>
 			</ul>
 		</nav>
 		

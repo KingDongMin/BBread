@@ -3,9 +3,11 @@ package com.bbread.controller;
 import com.bbread.action.Action;
 import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
+import com.bbread.action.MyUpdateAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
+import com.bbread.action.page.MyPageAction;
 
 public class ActionFactory {
 
@@ -24,10 +26,14 @@ public class ActionFactory {
 			action = new LoginPageAction();
 		} else if ("login".equals(command)) {
 			action = new LoginAction();
-		}else if ("join_page".equals(command)) {
+		} else if ("join_page".equals(command)) {
 			action = new JoinPageAction();
 		} else if ("join".equals(command)) {
 			action = new JoinAction();
+		} else if("My_page".equals(command)) {
+			action = new MyPageAction();
+		}else if("update_member".equals(command)) {
+			action = new MyUpdateAction();
 		}
 
 		return action;
