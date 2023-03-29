@@ -54,7 +54,7 @@ public class MemberDAO {
 			pstmt.setString(2, pw);
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				vo = new MemberVO();
 				vo.setId(rs.getString("id"));
 				vo.setPw(rs.getString("pass"));
@@ -63,6 +63,7 @@ public class MemberDAO {
 				vo.setPhone(rs.getString("phone"));
 				vo.setIndate(rs.getTimestamp("indate"));
 			}
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
