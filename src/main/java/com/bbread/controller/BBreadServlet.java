@@ -1,6 +1,8 @@
 package com.bbread.controller;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,16 +30,18 @@ public class BBreadServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		System.out.print(command+" --> ");
 		
+		ServletContext context = getServletContext();
 		ActionFactory af = ActionFactory.getInstance();
 		Action action = af.getAction(command);
 		if(action != null) {
-			action.execute(request, response);
+			action.execute(request, response, context);
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		doGet(request, response);
 	}
 

@@ -2,6 +2,7 @@ package com.bbread.action;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ import com.bbread.dto.MemberVO;
 public class MyUpdateAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context) throws IOException, ServletException {
 		HttpSession session = request.getSession();
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO beforeVO = new MemberVO();
@@ -40,7 +41,7 @@ public class MyUpdateAction implements Action {
 		}
 		
 		
-		new MainPageAction().execute(request, response);
+		new MainPageAction().execute(request, response, context);
 
 	}
 

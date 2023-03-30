@@ -1,6 +1,7 @@
 package com.bbread.controller;
 
 import com.bbread.action.Action;
+import com.bbread.action.AddProductAction;
 import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
 import com.bbread.action.LogoutAction;
@@ -40,6 +41,8 @@ public class ActionFactory {
 			action = new LogoutAction();
 		}else if("AddProduct_page".equals(command)) {
 			action = new AddProductPageAction();
+		}else if("add_product".equals(command)) {
+			action = new AddProductAction();
 		}
 
 		return action;

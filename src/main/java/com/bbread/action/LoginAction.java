@@ -2,6 +2,7 @@ package com.bbread.action;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import com.bbread.dto.MemberVO;
 public class LoginAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context) throws IOException, ServletException {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
@@ -27,7 +28,7 @@ public class LoginAction implements Action {
 		
 		if(loginVo != null) {
 			session.setAttribute("Mvo",loginVo);
-			new MainPageAction().execute(request, response);
+			new MainPageAction().execute(request, response, context);
 			request.setAttribute("message", "로그인 성공");
 
 		}else{
@@ -35,10 +36,10 @@ public class LoginAction implements Action {
 			AdminVO Avo = Adao.selectAdmin(id,pw);
 			if(Avo != null) {
 				session.setAttribute("Avo",Avo);
-				new MainPageAction().execute(request, response);
+				new MainPageAction().execute(request, response, context);
 			}else {
 				request.setAttribute("message", "로그인 실패");
-				new LoginPageAction().execute(request, response);
+				new LoginPageAction().execute(request, response, context);
 			}
 		}
 		

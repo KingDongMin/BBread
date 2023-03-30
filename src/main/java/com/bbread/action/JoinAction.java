@@ -2,6 +2,7 @@ package com.bbread.action;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ import com.bbread.dto.MemberVO;
 public class JoinAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context) throws IOException, ServletException {
 		
 		
 		MemberVO Mvo = new MemberVO();
@@ -29,7 +30,7 @@ public class JoinAction implements Action {
 		
 		
 		request.setAttribute("message","회원가입이 완료되었습니다. 로그인해주세요.");
-		new LoginPageAction().execute(request, response);
+		new LoginPageAction().execute(request, response, context);
 	}
 
 }
