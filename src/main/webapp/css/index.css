@@ -29,6 +29,7 @@
 	list-style: none;
 	font-family: 'Jamsil-R';
 	color : #3B3B3B;
+	box-sizing: border-box;
 }
 
 
@@ -134,7 +135,55 @@ footer{
 /* section */
 section{
 	padding : 1rem;
+
 }
+
+.product_list{
+	display : grid;
+	grid-template-columns : repeat(4, 1fr);
+	gap: 2rem 2rem;
+	
+	
+}
+
+.product_card{
+	width: 100%;
+	height : 100%;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+	border-radius: 5%;
+	overflow: hidden;
+	
+	
+}
+.product_card>div{
+	width: 100%;
+	height : 100%;
+	display : flex;
+	flex-direction: column;
+	padding : 0.2rem;
+}
+
+.product_card img{
+	width: 100%;
+	height : 79%;
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
+	object-fit : cover;
+}
+.product_card p{
+	width: 100%;
+}
+
+.product_card .title{
+	font-size: 0.8rem;
+	padding : 0.2rem 0;
+}
+
+.product_card .price{
+	font-size : 0.6rem;
+	opacity: 80%;
+}
+
 
 .input_button{
 	padding :  0.4rem 1.2rem;
