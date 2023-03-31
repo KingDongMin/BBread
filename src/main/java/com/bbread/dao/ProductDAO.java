@@ -61,6 +61,7 @@ public class ProductDAO {
 			while (rs.next()) {
 				pvo = new ProductVO();
 
+				pvo.setPseq(rs.getInt("pseq"));
 				pvo.setName(rs.getString("name"));
 				pvo.setKind(rs.getString("kind"));
 				pvo.setPrice(rs.getInt("price"));
@@ -77,6 +78,40 @@ public class ProductDAO {
 			DBManager.close(conn, stmt, rs);
 		}
 		return pvoList;
+	}
+	
+	//제품 선택
+	public ProductVO getProduct(int pseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ProductVO pvo = null;
+		String sql = "select * from product where pseq=?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pseq);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pvo = new ProductVO();
+				pvo.setPseq(rs.getInt("pseq"));
+				pvo.setName(rs.getString("name"));
+				pvo.setKind(rs.getString("kind"));
+				pvo.setPrice(rs.getInt("price"));
+				pvo.setContent(rs.getString("content"));
+				pvo.setImage(rs.getString("image"));
+			}
+	
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return pvo;
 	}
 
 // ProductDAO end	

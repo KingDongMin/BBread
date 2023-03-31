@@ -11,6 +11,7 @@ import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
 import com.bbread.action.page.MyPageAction;
+import com.bbread.action.page.ProductDetailPageAction;
 
 public class ActionFactory {
 
@@ -43,6 +44,8 @@ public class ActionFactory {
 			action = new AddProductPageAction();
 		}else if("add_product".equals(command)) {
 			action = new AddProductAction();
+		}else if("product_detail".equals(command)) {
+			action = new ProductDetailPageAction();
 		}
 
 		return action;
