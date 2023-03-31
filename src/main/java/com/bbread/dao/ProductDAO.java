@@ -113,6 +113,50 @@ public class ProductDAO {
 		}
 		return pvo;
 	}
+	
+	public void deleteProduct(String pseq) {
+		Connection conn = null;
+		Statement stmt = null;
+		String sql = "delete from product where pseq="+pseq;
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, stmt);
+		}
+	}
+	
+	
+	public void updateProduct(ProductVO pvo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String sql = "update product set name=?, kind=?, price=?, content=?, image=? where pseq=?";
+
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, pvo.getName());
+			pstmt.setString(2, pvo.getKind());
+			pstmt.setString(3, Integer.toString(pvo.getPrice()));
+			pstmt.setString(4, pvo.getContent());
+			pstmt.setString(5, pvo.getImage());
+			pstmt.setString(6, Integer.toString(pvo.getPseq()));
+
+			pstmt.executeQuery();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
 
 // ProductDAO end	
 }

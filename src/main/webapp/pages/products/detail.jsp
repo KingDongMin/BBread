@@ -41,9 +41,13 @@
 							<input type="number" name="quantity">
 							<button id="plus">+</button>
 						</div>
-
 						<input type="submit" value="장바구니에 담기">
-					</form> 
+					</form>
+					
+					<c:if test="${Avo != null}">
+						<button onClick="return window.location.href='http://localhost:8181/BBread/BBreadServlet?command=product_delete&pseq=${product.pseq}'">제품 삭제</button>
+						<button onClick="return window.location.href='http://localhost:8181/BBread/BBreadServlet?command=product_update_page&pseq=${product.pseq}'">제품 수정</button>
+					</c:if>
 				</div>
 			</div>
 

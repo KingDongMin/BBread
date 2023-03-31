@@ -6,12 +6,15 @@ import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
 import com.bbread.action.LogoutAction;
 import com.bbread.action.MyUpdateAction;
+import com.bbread.action.ProductDeleteAction;
+import com.bbread.action.ProductUpdateAction;
 import com.bbread.action.page.AddProductPageAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
 import com.bbread.action.page.MyPageAction;
 import com.bbread.action.page.ProductDetailPageAction;
+import com.bbread.action.page.ProductUpdatePageAction;
 
 public class ActionFactory {
 
@@ -46,6 +49,12 @@ public class ActionFactory {
 			action = new AddProductAction();
 		}else if("product_detail".equals(command)) {
 			action = new ProductDetailPageAction();
+		}else if("product_delete".equals(command)) {
+			action = new ProductDeleteAction();
+		}else if("product_update_page".equals(command)) {
+			action = new ProductUpdatePageAction();
+		}else if("update_product".equals(command)) {
+			action = new ProductUpdateAction();
 		}
 
 		return action;
