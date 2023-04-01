@@ -7,7 +7,7 @@
 	
 
 	<div id="logo">
-		<a>
+		<a href="BBreadServlet">
 			<img alt="Brand_logo" src="imgs/logo/BBread_Logo.png" >
 		</a>
 		
@@ -41,24 +41,24 @@
 		
 		<nav id="product_menu">
 			<ul>
-				<li>
-				<a>Sourdough</a>
+				<li class="menu 효모">
+				<a href="BBreadServlet?command=product_list&kind=효모">Sourdough</a>
 				</li>
 				
-				<li>
-				<a>Baguette</a>
+				<li class="menu 바게트">
+				<a href="BBreadServlet?command=product_list&kind=바게트">Baguette</a>
 				</li>
 				
-				<li>
-				<a>Brioche</a>
+				<li class="menu 브리오슈">
+				<a href="BBreadServlet?command=product_list&kind=브리오슈">Brioche</a>
 				</li>
 				
-				<li>
-				<a>Focaccia</a>
+				<li class="menu 포카치아">
+				<a href="BBreadServlet?command=product_list&kind=포카치아">Focaccia</a>
 				</li>
 				
-				<li>
-				<a>Ciabatta</a>
+				<li class="menu 치아바타">
+				<a href="BBreadServlet?command=product_list&kind=치아바타">Ciabatta</a>
 				</li>
 			</ul>
 		</nav>

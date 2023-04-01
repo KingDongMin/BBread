@@ -38,12 +38,12 @@
 					
 					<li>
 					<label for="price">제품 가격</label>
-					<input type="text" name="price">
+					<input type="number" name="price">
 					</li>
 					
 					<li>
 					<label for="content">제품 내용</label>
-					<textarea rows="20" cols="50" name="content"></textarea>
+					<textarea rows="10" cols="50" name="content"></textarea>
 					</li>
 					
 					<li>

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,6 +156,43 @@ public class ProductDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
+	
+	public List<ProductVO> getList(String kind){
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ProductVO pvo = null;
+		List<ProductVO> plist = new ArrayList<ProductVO>();
+		
+		String sql = "select * from product where kind='"+kind+"'";
+		
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				pvo = new ProductVO();
+				
+				pvo.setPseq(rs.getInt("pseq"));
+				pvo.setName(rs.getString("name"));
+				pvo.setKind(rs.getString("kind"));
+				pvo.setPrice(rs.getInt("price"));
+				pvo.setContent(rs.getString("content"));
+				pvo.setImage(rs.getString("image"));
+				
+				plist.add(pvo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return plist;
+	}
+	
+	
 
 // ProductDAO end	
 }

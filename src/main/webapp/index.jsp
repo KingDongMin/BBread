@@ -10,10 +10,11 @@
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/message.css">
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/main.js" defer></script>
 <!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
 </head>
 <body>
+	
 	<c:import url="message.jsp" />
 	<div id="wrap">
 		<!-- Header Section -->
@@ -22,7 +23,7 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<ul class="product_list">
-				<c:forEach var="product" items="${allProducts}">
+				<c:forEach var="product" items="${ProductList}">
 					<li class="product_card" onClick="return window.location.href='http://localhost:8181/BBread/BBreadServlet?command=product_detail&pseq=${product.pseq}'">
 						<div>
 							<img alt="${product.image}" src="upload/${product.image}">
