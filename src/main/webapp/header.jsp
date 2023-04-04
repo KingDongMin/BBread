@@ -5,7 +5,6 @@
 <!-- 해더 컴포넌트  -->
 <header>
 	
-
 	<div id="logo">
 		<a href="BBreadServlet">
 			<img alt="Brand_logo" src="imgs/logo/BBread_Logo.png" >
@@ -34,7 +33,11 @@
 					</c:otherwise>
 				</c:choose>
 
-				<li>Cart</li>
+				<li>
+					<c:if test="${Mvo != null }">
+						<a href="BBreadServlet?command=cart_page">Cart</a>
+					</c:if>
+				</li>
 				<li>Q&A</li>
 			</ul>
 		</nav>

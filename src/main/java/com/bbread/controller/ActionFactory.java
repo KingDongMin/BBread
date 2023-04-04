@@ -2,6 +2,7 @@ package com.bbread.controller;
 
 import com.bbread.action.Action;
 import com.bbread.action.AddProductAction;
+import com.bbread.action.CartAction;
 import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
 import com.bbread.action.LogoutAction;
@@ -10,6 +11,7 @@ import com.bbread.action.ProductDeleteAction;
 import com.bbread.action.ProductListAction;
 import com.bbread.action.ProductUpdateAction;
 import com.bbread.action.page.AddProductPageAction;
+import com.bbread.action.page.CartPageAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
@@ -58,6 +60,10 @@ public class ActionFactory {
 			action = new ProductUpdateAction();
 		}else if("product_list".equals(command)) {
 			action = new ProductListAction();
+		}else if("add_cart".equals(command)) {
+			action = new CartAction();
+		}else if("cart_page".equals(command)) {
+			action = new CartPageAction();
 		}
 
 		return action;
