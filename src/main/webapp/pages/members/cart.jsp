@@ -9,8 +9,8 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/message.css">
-<link rel="stylesheet" href="css/detail.css">
+<link rel="stylesheet" href="css/cart.css">
+
 <script type="text/javascript" src="js/main.js" defer></script>
 
 <!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
@@ -23,20 +23,38 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<div class="detail_wrap">
-				<ul>
+				<h1>담긴 제품</h1>
+				<ul class="carts">
 					<c:forEach var="item" items="${carts}">
-						<li>
-							<img alt="item_image" src="upload/${item.p_url}">
-							<p>${item.p_name}</p>
-							<p>${item.p_price}</p>
-							<p>${item.quantity}</p>
-						
+						<li class="cart">
+							<div class="img_box">
+								<img alt="item_image" src="upload/${item.p_url}">
+							</div>
+							
+							<div class="product">
+								<p>${item.p_name}</p>
+								<p>￦ ${item.p_price}</p>
+							</div>
+							
+							
+							<div class="quantity_btn">
+								<button>-</button>
+								<p>${item.quantity}</p>
+								<button>+</button>
+							</div>
+							<button class="delete_btn">삭제</button>
 						</li>
 					
 					</c:forEach>
 				
 				</ul>
-
+				
+				<div class="form_box">
+					<form action="BBreadServlet" method="post">
+						<input class="submit_btn" type="submit" value="주문 하기">
+					</form>
+				</div>
+				
 			
 			</div>	
 		</section>
