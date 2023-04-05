@@ -24,11 +24,11 @@ public class CartPageAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context)
 			throws IOException, ServletException {
 
-		String pageURL = "pages/members/cart.jsp";
-		
 		HttpSession session = request.getSession();
-		
 		MemberVO mvo = (MemberVO) session.getAttribute("Mvo");
+		CartDAO cdao = CartDAO.getInstance();
+		String pageURL = "pages/members/cart.jsp";
+		String mid = null;
 
 		// 로그인 유효성 검사
 		if (mvo == null) {
@@ -39,13 +39,19 @@ public class CartPageAction implements Action {
 		}
 		
 		// 로그인 후
-		
-		String mid = mvo.getId();
-		CartDAO cdao = CartDAO.getInstance();
-		
+		mid = mvo.getId();
 		List<CartVO> carts = cdao.getCarts(mid);
-		request.setAttribute("carts", carts);
-
+		
+		//카트 값 테스트
+		System.out.print("carts값 : "+carts+"/");
+		if(carts != null) {
+			System.out.print("carts값 :true");
+			request.setAttribute("carts", carts);
+		}else {
+			System.out.print("carts값 : null /");
+			request.setAttribute("null_carts", "카트에 담긴 제품이 없습니다.");
+		}
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(pageURL);
 		dispatcher.forward(request, response);
 	}

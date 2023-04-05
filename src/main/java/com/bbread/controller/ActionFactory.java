@@ -3,6 +3,7 @@ package com.bbread.controller;
 import com.bbread.action.Action;
 import com.bbread.action.AddProductAction;
 import com.bbread.action.CartAction;
+import com.bbread.action.CartOrderAction;
 import com.bbread.action.JoinAction;
 import com.bbread.action.LoginAction;
 import com.bbread.action.LogoutAction;
@@ -64,6 +65,8 @@ public class ActionFactory {
 			action = new CartAction();
 		}else if("cart_page".equals(command)) {
 			action = new CartPageAction();
+		}else if("cart_order".equals(command)) {
+			action = new CartOrderAction();
 		}
 
 		return action;

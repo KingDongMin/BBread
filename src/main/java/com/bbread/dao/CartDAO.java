@@ -86,26 +86,30 @@ public class CartDAO {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
-			while(rs.next()) {
-				cvo = new CartVO();
-				ProductDAO pdao = ProductDAO.getInstance();
-				ProductVO pvo = pdao.getProduct(rs.getInt("pseq"));
+			if(rs.next()) {
+				do {
+					cvo = new CartVO();
+					ProductDAO pdao = ProductDAO.getInstance();
+					ProductVO pvo = pdao.getProduct(rs.getInt("pseq"));
+					
+					cvo.setCseq(rs.getInt("cseq"));
+					cvo.setMid(rs.getString("mid"));
+					cvo.setPseq(rs.getInt("pseq"));
+					cvo.setQuantity(rs.getInt("quantity"));
+					cvo.setResult(rs.getString("result").charAt(0));
+					cvo.setIndate(rs.getTimestamp("indate"));
+					cvo.setP_url(pvo.getImage());
+					cvo.setP_name(pvo.getName());
+					cvo.setP_price(pvo.getPrice());
+					
+					carts.add(cvo);
+
+				} while (rs.next());
 				
-				cvo.setCseq(rs.getInt("cseq"));
-				cvo.setMid(rs.getString("mid"));
-				cvo.setPseq(rs.getInt("pseq"));
-				cvo.setQuantity(rs.getInt("quantity"));
-				cvo.setResult(rs.getString("result").charAt(0));
-				cvo.setIndate(rs.getTimestamp("indate"));
-				cvo.setP_url(pvo.getImage());
-				cvo.setP_name(pvo.getName());
-				cvo.setP_price(pvo.getPrice());
-				
-				
-				
-				
-				carts.add(cvo);
+			}else {
+				carts = null;
 			}
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -130,5 +134,24 @@ public class CartDAO {
 			DBManager.close(conn, stmt);
 		}
 	}
+
+	//해당 유저의 카트제품 삭제
+	public void deleteCart(int cseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete cart where cseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
 	
+	//CartDAO end
 }
