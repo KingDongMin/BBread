@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#edit-wrap{
+	width : 100%;
+	height : auto;
+	display : grid;
+	grid-template-rows : 1fr 2fr;
+	gap : 1rem;
+}
+
+article{
+	width:100%;
+}
+
+
+/* member article */
+
+.member-info{
+	display : flex;
+	margin : 0.5rem 0;
+	width: 100%;
+	
+}
+
+.member-info li .item{
+	color : gray;
+}
+
+.edit-btn a{
+	width : 100%;
+	height:100%;
+	padding : 0.5rem;
+	border : 1px solid black;
+}
+
+
+/* order article */

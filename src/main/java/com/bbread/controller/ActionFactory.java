@@ -16,6 +16,7 @@ import com.bbread.action.page.CartPageAction;
 import com.bbread.action.page.JoinPageAction;
 import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
+import com.bbread.action.page.MemberUpdatePageAction;
 import com.bbread.action.page.MyPageAction;
 import com.bbread.action.page.ProductDetailPageAction;
 import com.bbread.action.page.ProductUpdatePageAction;
@@ -67,6 +68,8 @@ public class ActionFactory {
 			action = new CartPageAction();
 		}else if("cart_order".equals(command)) {
 			action = new CartOrderAction();
+		}else if("member_update_page".equals(command)) {
+			action = new MemberUpdatePageAction();
 		}
 
 		return action;
