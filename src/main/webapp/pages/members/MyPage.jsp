@@ -21,7 +21,7 @@
 		<section>
 		<div id="edit-wrap">
 			<!-- 회원정보 -->
-			<article >
+			<article>
 			<h1>회원정보</h1>
 			<ul class="member-info">
 				<li>
@@ -49,10 +49,19 @@
 			<!-- 주문현황 -->
 			<article>
 			<h1>주문 현황</h1>
-			<ul>
-				<li>제품1</li>
-				<li>제품2</li>
-				<li>제품3</li>
+			<ul class="order-list">
+				<c:forEach var="order" items="${order_list }">
+					<li class="order-item">
+						<div class="img-box">
+							<img alt="orderItem-image" src="upload/${order.p_url }">
+						</div>
+						<span>${order.p_name}</span>
+						<span>${order.p_price}</span>
+						<span>${order.quantity }</span>
+						<span>${order.result }</span>
+					</li>
+				
+				</c:forEach>
 			</ul>
 			</article>
 		</div>

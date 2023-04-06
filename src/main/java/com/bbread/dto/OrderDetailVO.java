@@ -10,6 +10,33 @@ public class OrderDetailVO {
 	private int quantity;
 	private char result;
 	
+
+	//제품데이터 (이미지, 이름, 가격)
+	private String p_url;
+	private String p_name;
+	private int p_price;
+	
+	
+	public String getP_url() {
+		return p_url;
+	}
+	public void setP_url(String p_url) {
+		this.p_url = p_url;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public int getP_price() {
+		return p_price;
+	}
+	public void setP_price(int p_price) {
+		this.p_price = p_price;
+	}
+	
+	
 	public int getOdseq() {
 		return odseq;
 	}

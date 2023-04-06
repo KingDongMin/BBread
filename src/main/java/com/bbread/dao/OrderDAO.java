@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bbread.dto.CartVO;
+import com.bbread.dto.OrderDetailVO;
 import com.bbread.dto.OrdersVO;
 
 import util.DBManager;
@@ -65,6 +68,53 @@ public class OrderDAO {
 		}finally {
 			DBManager.close(conn, pstmt);
 		}
+		
+	}
+	
+	
+	// 주문제품 가져오기
+	public List<OrderDetailVO> getOrderList(String mid){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<OrderDetailVO> list =  new ArrayList<OrderDetailVO>();
+		OrderDetailVO odvo = null;
+		
+		String sql = "select P.name, P.price, P.image, O.* from product P , (select * from order_detail where oseq in (select oseq from orders where mid=?)) O where P.pseq = O.pseq";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				do {
+					odvo = new OrderDetailVO();
+					odvo.setOdseq(rs.getInt("odseq"));
+					odvo.setOseq(rs.getInt("oseq"));
+					odvo.setPseq(rs.getInt("pseq"));
+					odvo.setQuantity(rs.getInt("quantity"));
+					odvo.setResult(rs.getString("result").charAt(0));
+					odvo.setP_name(rs.getString("name"));
+					odvo.setP_price(rs.getInt("price"));
+					odvo.setP_url(rs.getString("image"));
+					
+					list.add(odvo);
+					
+				} while (rs.next());
+				
+				
+			}else {
+				list = null;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
 		
 	}
 }
