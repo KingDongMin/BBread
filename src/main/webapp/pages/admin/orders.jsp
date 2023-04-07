@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="css/orders.css">
 
 </head>
 <body>
@@ -20,7 +20,7 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<h1>주문 현황</h1>
-			<table style="border: 2px solid black;">
+			<table class="order_table">
 				<tr>
 					<td>주문 번호</td>
 					<td>회원 아이디</td>

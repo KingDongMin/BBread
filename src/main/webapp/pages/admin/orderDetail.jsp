@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="css/orderDetail.css">
 
 </head>
 <body>
@@ -20,15 +20,15 @@
 		<!-- outlet Pages Section -->
 		<section>
 			
-			<h1>주문 상세 페이지</h1>
-			<ul>
+			<h1 class="title">주문 상세 페이지</h1>
+			<ul class="user_list">
 				<li>주문번호 : ${OD_list[0].oseq }</li>
 				
 				<!-- 추후 구현  -->
 				<li>회원 아이디 : ?</li>
 				<li>날짜 : ??</li>
 			</ul>
-			<table>
+			<table class="detail_table">
 				<tr>
 					<td>제품 번호</td>
 					<td>제품 이름</td>
@@ -47,13 +47,14 @@
 						<td>${od.result }</td>
 						<td><button onClick="location.href='BBreadServlet?command=order_detail_check&oseq=${od.oseq}&odseq=${od.odseq}'">완료</button></td>
 					</tr>
-				
 				</c:forEach>
-				
-			
-			
+	
 			</table>
-			<button onClick="location.href='BBreadServlet?command=order_check&oseq=${OD_list[0].oseq }'">주문완료</button>
+			
+			<div class="order-btn-wrap">
+				<button class="order-btn" onClick="location.href='BBreadServlet?command=order_check&oseq=${OD_list[0].oseq }'">주문완료</button>
+			</div>
+			
 			
 		</section>
 

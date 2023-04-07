@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.order_table{
+	width : 100%;
+	height : auto;
+	border : 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	margin : 1rem 0;
+}
+.order_table tr,td{
+	border : 1px solid black;
+	padding : 0.3rem;
+}
+
+.order_table tr:first-child, tr:first-child td {
+	background-color: #dfdfdf;
+	padding : 0.8rem;
+} 
+
+
+.order_table tr{
+	cursor: pointer;
+}
+
+.order_table tr:first-child ~ tr:hover{
+	background-color: gray;
+}
+
+.order_table tr td{
+	border : 1px solid black;
+}

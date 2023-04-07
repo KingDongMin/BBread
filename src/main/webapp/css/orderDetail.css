@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.title{
+	margin-bottom: 1rem;
+}
+
+.user_list{
+	display : flex;
+	width:100%;
+	margin : 0.5rem 0;
+}
+
+.detail_table{
+	width : 100%;
+	border : 1px solid black;
+	margin : 0.5rem 0;
+	border-collapse: collapse;
+	text-align : center;
+	
+}
+
+.detail_table tr, td{
+	border: 1px solid black;
+	padding : 0.3rem;
+}
+
+.detail_table tr:first-child, tr:first-child td{
+	background-color: #dfdfdf;
+	padding : 0.8rem;
+}
+
+.order-btn-wrap{
+	width: 100%;
+	text-align: center;
+}
+
+.order-btn{
+	padding : 0.5rem;
+	font-size: 1.3rem;
+}
