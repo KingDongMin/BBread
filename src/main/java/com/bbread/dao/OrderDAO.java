@@ -115,6 +115,85 @@ public class OrderDAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return list;
-		
 	}
+	
+	// 주문테이블 조회
+	public List<OrdersVO> getOrders(){
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		OrdersVO ovo = null;
+		List<OrdersVO> list = new ArrayList<OrdersVO>();
+		
+		String sql = "select * from orders";
+		try {
+			conn = DBManager.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				do {
+					ovo = new OrdersVO();
+					ovo.setOseq(rs.getInt("oseq"));
+					ovo.setMid(rs.getString("mid"));
+					ovo.setIndate(rs.getTimestamp("indate"));
+					ovo.setResult(rs.getString("result").charAt(0));
+					
+					list.add(ovo);
+					
+				} while (rs.next());
+			}else {
+				list = null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, stmt, rs);
+		}
+		return list;
+	}
+	
+	// 주문상세테이블 조회
+	public List<OrderDetailVO> getOrderDetail(int oseq){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		OrderDetailVO odvo = null;
+		List<OrderDetailVO> list = new ArrayList<OrderDetailVO>();
+		
+		String sql = "select OD.* , P.name, P.useyn from (select * from order_detail where oseq=?) OD, product P where P.pseq = OD.pseq";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, oseq);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				do {
+					odvo = new OrderDetailVO();
+					odvo.setOdseq(rs.getInt("odseq"));
+					odvo.setOseq(rs.getInt("oseq"));
+					odvo.setQuantity(rs.getInt("quantity"));
+					odvo.setResult(rs.getString("result").charAt(0));
+					odvo.setPseq(rs.getInt("pseq"));
+					odvo.setP_name(rs.getString("name"));
+					odvo.setP_useyn(rs.getString("useyn").charAt(0));
+					
+					list.add(odvo);
+				} while (rs.next());
+			}else {
+				list = null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
+// Orders end
 }

@@ -24,6 +24,17 @@
 					<li><a href="BBreadServlet?command=AddProduct_page">Add Product</a></li>
 				</c:if>
 				
+				<li>
+					<c:if test="${Mvo != null }">
+						<a href="BBreadServlet?command=cart_page">Cart</a>
+					</c:if>
+					<c:if test="${Avo != null }">
+						<a href="BBreadServlet?command=orders_page">Orders</a>
+					</c:if>
+				</li>
+				
+				<li>Q&A</li>
+				
 				<c:choose>
 					<c:when test="${Mvo == null && Avo == null }">
 						<li><a href="BBreadServlet?command=login_page">Login</a></li>
@@ -32,13 +43,6 @@
 						<li><a href="BBreadServlet?command=logout">Logout</a></li>
 					</c:otherwise>
 				</c:choose>
-
-				<li>
-					<c:if test="${Mvo != null }">
-						<a href="BBreadServlet?command=cart_page">Cart</a>
-					</c:if>
-				</li>
-				<li>Q&A</li>
 			</ul>
 		</nav>
 		

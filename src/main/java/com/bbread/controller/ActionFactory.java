@@ -18,6 +18,8 @@ import com.bbread.action.page.LoginPageAction;
 import com.bbread.action.page.MainPageAction;
 import com.bbread.action.page.MemberUpdatePageAction;
 import com.bbread.action.page.MyPageAction;
+import com.bbread.action.page.OrderDetailPageAction;
+import com.bbread.action.page.OrdersPageAction;
 import com.bbread.action.page.ProductDetailPageAction;
 import com.bbread.action.page.ProductUpdatePageAction;
 
@@ -70,6 +72,10 @@ public class ActionFactory {
 			action = new CartOrderAction();
 		}else if("member_update_page".equals(command)) {
 			action = new MemberUpdatePageAction();
+		}else if("orders_page".equals(command)) {
+			action = new OrdersPageAction();
+		}else if("order_detail_page".equals(command)) {
+			action = new OrderDetailPageAction();
 		}
 
 		return action;

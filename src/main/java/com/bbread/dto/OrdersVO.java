@@ -6,6 +6,15 @@ public class OrdersVO {
 	private int oseq;
 	private String mid;
 	private Timestamp indate;
+	private char result;
+	
+	
+	public char getResult() {
+		return result;
+	}
+	public void setResult(char result) {
+		this.result = result;
+	}
 	public int getOseq() {
 		return oseq;
 	}

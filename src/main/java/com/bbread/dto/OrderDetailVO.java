@@ -15,8 +15,16 @@ public class OrderDetailVO {
 	private String p_url;
 	private String p_name;
 	private int p_price;
+	private char p_useyn;
 	
 	
+	
+	public char getP_useyn() {
+		return p_useyn;
+	}
+	public void setP_useyn(char p_useyn) {
+		this.p_useyn = p_useyn;
+	}
 	public String getP_url() {
 		return p_url;
 	}
