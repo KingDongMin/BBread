@@ -194,6 +194,41 @@ public class OrderDAO {
 		return list;
 	}
 	
+	public void checkOrderDetail(int odseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update order_detail set result ='y' where odseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, odseq);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	// 주문 상테 변경
+	public void checkOrder(int oseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update orders set result ='y' where oseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oseq);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
 	
 // Orders end
 }

@@ -34,6 +34,7 @@
 					<td>제품 이름</td>
 					<td>제품 수량</td>
 					<td>재고</td>
+					<td>상태</td>
 					<td>출고</td>
 				</tr>
 				
@@ -43,7 +44,8 @@
 						<td>${od.p_name }</td>
 						<td>${od.quantity }</td>
 						<td>${od.p_useyn }</td>
-						<td><button>완료</button></td>
+						<td>${od.result }</td>
+						<td><button onClick="location.href='BBreadServlet?command=order_detail_check&oseq=${od.oseq}&odseq=${od.odseq}'">완료</button></td>
 					</tr>
 				
 				</c:forEach>
@@ -51,9 +53,7 @@
 			
 			
 			</table>
-			<button>주문완료</button>
-			
-			
+			<button onClick="location.href='BBreadServlet?command=order_check&oseq=${OD_list[0].oseq }'">주문완료</button>
 			
 		</section>
 
