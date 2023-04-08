@@ -19,6 +19,7 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<h1> QnA edit</h1>
+			<c:if test="${message != null }">${message}</c:if>
 			<form action="BBreadServlet" method="post">
 				<input type="hidden" name="command" value="edit_QnA">
 				<table>

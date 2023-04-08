@@ -19,6 +19,7 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<h1>Q & A</h1>
+			<c:if test="${message != null }">${message}</c:if>
 			<button onClick="location.href='BBreadServlet?command=QnAedit_page'">글쓰기</button>
 			<table>
 			<tr>
@@ -30,13 +31,26 @@
 					<td>날 짜</td>
 					<td>상 태</td>
 				</tr>
-				<tr>
-					<td>15</td>
-					<td>테스트 게시글</td>
-					<td>kim</td>
-					<td>2023/04/08</td>
-					<td>대 기</td>
-				</tr>
+				<c:choose>
+					<c:when test="${QnA_list !=null }">
+						<c:forEach var="item" items="${QnA_list}">
+						<tr>
+							<td>${item.qseq}</td>
+							<td>${item.title}</td>
+							<td>${item.mid }</td>
+							<td>${item.indate}</td>
+							<td>${item.result}</td>
+						</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td>${QnA_list}</td>
+						</tr>
+					</c:otherwise>
+				
+				</c:choose>
+				
 			</table>
 
 		</section>
