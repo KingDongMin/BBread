@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+section{
+	width: 100%;
+	height : auto;
+}
+
+.edit-table{
+	width:100%;
+	height: auto;
+	margin : 0.5rem 0;
+	padding : 0.5rem;
+	border : 1px solid black;
+	border-collapse: collapse;
+}
+
+.edit-table tr, td{
+	padding : 0.3rem;
+}
+ 
+.edit-table tr td:first-child{
+	text-align :center;
+	border: 1px solid black;
+}
+ 
+ .edit-table input{
+  height : 100%;
+ 
+ }
+    
+.btn-box{
+	width : 100%;
+	display : flex;
+	justify-content: center;
+}
+
+.btn-box input {
+	padding : 0.3rem;
+	font-size : 1.2rem;
+}

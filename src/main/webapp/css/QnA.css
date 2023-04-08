@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+seciton{
+	width : 100%;
+}
+
+
+.edit-btn{
+	float: right;
+	margin : 0.5rem 0 ;
+	padding : 0.3rem;
+}
+
+.QnA-list{
+	width : 100%;
+	height : auto;
+	border: 1px solid black;
+	text-align : center;
+	border-collapse: collapse;
+}
+
+.QnA-list tr, td{
+	border : 1px solid black;
+	padding : 0.5rem;
+}
+
+.QnA-list tr:first-child td{
+	background-color: gray;
+	font-size : 1.2rem;
+}
+
+.QnA-list tr:first-child ~ tr:hover{
+	background-color: red;
+	cursor : pointer;
+}

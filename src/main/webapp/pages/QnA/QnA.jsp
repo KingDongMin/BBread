@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/QnA.css">
 
 </head>
 <body>
@@ -20,10 +21,8 @@
 		<section>
 			<h1>Q & A</h1>
 			<c:if test="${message != null }">${message}</c:if>
-			<button onClick="location.href='BBreadServlet?command=QnAedit_page'">글쓰기</button>
-			<table>
-			<tr>
-			</tr>
+			<button class="edit-btn" onClick="location.href='BBreadServlet?command=QnAedit_page'">글쓰기</button>
+			<table class="QnA-list">
 				<tr>
 					<td>글 번호</td>
 					<td>제 목</td>

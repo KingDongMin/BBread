@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-
+<link rel="stylesheet" href="css/QnA_edit.css">
 </head>
 <body>
 	<div id="wrap">
@@ -22,7 +22,7 @@
 			<c:if test="${message != null }">${message}</c:if>
 			<form action="BBreadServlet" method="post">
 				<input type="hidden" name="command" value="edit_QnA">
-				<table>
+				<table class="edit-table">
 				 	<tr>
 				 		<td>작성자</td>
 				 		<td>
@@ -41,14 +41,14 @@
 				 			<textarea name="inquiry" rows="20" cols="50"></textarea>
 				 		</td>
 				 	</tr>
-				 	<tr>
-				 		<td>
-					 		<input type="submit" value="작성 완료">
-					 		<input type="reset" value="다시 쓰기">
-				 		</td>
-				 		
-				 	</tr>
+		
 				</table>
+				
+				<div class="btn-box">
+					<input type="submit" value="작성 완료">
+					<input type="reset" value="다시 쓰기">
+				</div>
+					 		
 			</form>
 		</section>
 
