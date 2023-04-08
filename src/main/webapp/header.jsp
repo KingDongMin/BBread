@@ -33,7 +33,11 @@
 					</c:if>
 				</li>
 				
-				<li>Q&A</li>
+				<li>
+					<c:if test ="${Mvo != null || Avo != null}">
+						<li><a href="BBreadServlet?command=QnA_page">Q&A</a></li>
+					</c:if>
+				</li>
 				
 				<c:choose>
 					<c:when test="${Mvo == null && Avo == null }">
