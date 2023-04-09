@@ -33,3 +33,14 @@ seciton{
 	background-color: red;
 	cursor : pointer;
 }
+
+.QnA_detail-table{
+	width : 100%;
+	height : auto;
+	border : 1px solid black;
+	border-collapse: collapse;
+}
+
+.QnA_detail-table tr td:first-child{
+	text-align : center;
+}

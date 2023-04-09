@@ -85,7 +85,7 @@
 				<c:choose>
 				<c:when test="${QnA_list != null }">
 					<c:forEach var="item" items="${QnA_list }">
-						<tr>
+						<tr onClick="location.href='BBreadServlet?command=QnA_detail_page&qseq=${item.qseq}'">
 							<td>${item.qseq}</td>
 							<td>${item.title }</td>
 							<td>
@@ -128,23 +128,5 @@
 		<c:import url="../../footer.jsp" />
 	</div>
 
-	<script type="text/javascript" defer>
-	
-		//제품 수량 증감
-		const quantityBox = document.getElementById("quantity_box");
-		const quantity = document.getElementById("quantity");
-		quantityBox.onclick = (e)=>{
-			const value = e.target.value;
-			
-			if(value != "plus" && value != "minus" ) return;
-			
-			if(value == "plus"){
-				quantity.value = Number(quantity.value)+ 1;
-			}else if(value=="minus" && Number(quantity.value) > 1 ){
-				quantity.value = Number(quantity.value) - 1;
-			}
-		}
-	
-	</script>
 </body>
 </html>

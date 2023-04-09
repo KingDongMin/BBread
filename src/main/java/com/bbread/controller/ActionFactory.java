@@ -25,6 +25,7 @@ import com.bbread.action.page.OrderDetailPageAction;
 import com.bbread.action.page.OrdersPageAction;
 import com.bbread.action.page.ProductDetailPageAction;
 import com.bbread.action.page.ProductUpdatePageAction;
+import com.bbread.action.page.QnADetailPageAction;
 import com.bbread.action.page.QnAeditPageAction;
 import com.bbread.action.page.QnApageAction;
 
@@ -91,6 +92,8 @@ public class ActionFactory {
 			action = new QnAeditPageAction();
 		}else if("edit_QnA".equals(command)) {
 			action = new QnAeditAction();
+		}else if("QnA_detail_page".equals(command)) {
+			action = new QnADetailPageAction();
 		}
 
 		return action;

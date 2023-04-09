@@ -44,7 +44,7 @@ public class QnADAO {
 		return rs;
 	}
 	
-	// 게시글 가져오기
+	// 게시글 리스트 가져오기
 	public List<QnAVO> getQnAList(){
 		List<QnAVO> list = new ArrayList<QnAVO>();
 		QnAVO qvo = null;
@@ -126,7 +126,38 @@ public class QnADAO {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return list;
-		
+	}
+	
+	// 게시글 가져오기
+	public QnAVO getQnA(int qseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		QnAVO qvo = null;
+		String sql = "select * from qna where qseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				qvo = new QnAVO();
+				qvo.setQseq(rs.getInt("qseq"));
+				qvo.setTitle(rs.getString("title"));
+				qvo.setInquiry(rs.getString("inquiry"));
+				qvo.setAnswer(rs.getString("answer"));
+				qvo.setMid(rs.getString("mid"));
+				qvo.setResult(rs.getString("result").charAt(0));
+				qvo.setIndate(rs.getTimestamp("indate"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return qvo;
 	}
 	
 }

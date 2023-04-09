@@ -33,7 +33,7 @@
 				<c:choose>
 					<c:when test="${QnA_list !=null }">
 						<c:forEach var="item" items="${QnA_list}">
-						<tr>
+						<tr onClick="location.href='BBreadServlet?command=QnA_detail_page&qseq=${item.qseq}'">
 							<td>${item.qseq}</td>
 							<td>${item.title}</td>
 							<td>${item.mid }</td>
