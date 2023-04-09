@@ -12,9 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import com.bbread.action.Action;
 import com.bbread.dao.OrderDAO;
+import com.bbread.dao.QnADAO;
 import com.bbread.dto.MemberVO;
 import com.bbread.dto.OrderDetailVO;
 import com.bbread.dto.OrdersVO;
+import com.bbread.dto.QnAVO;
 
 public class MyPageAction implements Action {
 
@@ -31,6 +33,11 @@ public class MyPageAction implements Action {
 		List<OrderDetailVO> list= odao.getOrderList(mid);
 		
 		request.setAttribute("order_list", list);
+		
+		// QnA 리스트 가져오기
+		QnADAO qdao = QnADAO.getInstance();
+		List<QnAVO> QnA_list = qdao.getMyQnA(mid);
+		request.setAttribute("QnA_list", QnA_list);
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(pageURL);

@@ -64,6 +64,63 @@
 				</c:forEach>
 			</ul>
 			</article>
+			
+			<article>
+			<h1>나의 Q&A</h1>
+			<table class="QnA-table">
+				<colgroup>
+					<col width="15%">
+					<col width="40%">
+					<col width="30%">
+					<col width="25%">
+				</colgroup>
+			
+				<tr>
+					<td>글 번호</td>
+					<td>제 목</td>
+					<td>날 짜</td>
+					<td>상 태</td>
+				</tr>
+				
+				<c:choose>
+				<c:when test="${QnA_list != null }">
+					<c:forEach var="item" items="${QnA_list }">
+						<tr>
+							<td>${item.qseq}</td>
+							<td>${item.title }</td>
+							<td>
+								<fmt:formatDate var="indateFormat" pattern="yy년 MM월 dd일" value="${item.indate}"/>
+								<c:out value="${indateFormat }"/>
+							</td>
+							<c:choose>
+								<c:when test="${item.result != n}">
+									<td>답변 대기</td>
+								</c:when>
+								<c:otherwise>
+									<td>답변 완료</td>
+								</c:otherwise>
+							</c:choose>
+						</tr>
+					</c:forEach>
+				
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td colspan="4">
+							나의 Q&A가 없습니다.
+						</td>
+					</tr>
+				
+				</c:otherwise>
+				
+				</c:choose>		
+			
+			
+			</table>
+			
+			
+			</article>
+			
 		</div>
 		</section>
 

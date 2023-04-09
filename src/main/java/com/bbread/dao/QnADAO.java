@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.bbread.dto.QnAVO;
 
+import oracle.jdbc.proxy.annotation.Pre;
 import util.DBManager;
 
 public class QnADAO {
@@ -82,6 +83,50 @@ public class QnADAO {
 			DBManager.close(conn, stmt, rs);
 		}
 		return list;
+	}
+	
+	// 해당 사용자의 QnA 리스트 가져오기
+	public List<QnAVO> getMyQnA(String mid){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QnAVO> list = new ArrayList<QnAVO>();
+		QnAVO qvo = null;
+		String sql = "select * from qna where mid=?";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				do {
+					qvo = new QnAVO();
+					qvo.setQseq(rs.getInt("qseq"));
+					qvo.setTitle(rs.getString("title"));
+					qvo.setInquiry(rs.getString("inquiry"));
+					qvo.setAnswer(rs.getString("answer"));
+					qvo.setMid(rs.getString("mid"));
+					qvo.setResult(rs.getString("result").charAt(0));
+					qvo.setIndate(rs.getTimestamp("indate"));
+					
+					list.add(qvo);
+					
+				} while (rs.next());
+				
+			}else {
+				
+				list = null;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+		
 	}
 	
 }
