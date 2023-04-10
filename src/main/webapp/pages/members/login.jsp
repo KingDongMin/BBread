@@ -10,7 +10,7 @@
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/login.css">
-<!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
+
 </head>
 <body>
 	<div id="wrap">
@@ -25,12 +25,16 @@
 				<ul>
 					<li >
 					<label for="id">아이디</label>
-					<input type="text" name="id">
+					<input type="text" name="id" required="required"
+					 oninvalid="this.setCustomValidity('아이디를 입력해주세요.')"
+					 oninput="this.setCustomValidity('')">
 					</li>
 
 					<li>
 					<label for="pw">비밀번호</label>
-					<input type="password" name="pw">
+					<input type="password" name="pw" required="required"
+					oninvalid="this.setCustomValidity('비밀번호를 입력해주세요.')"
+					oninput="this.setCustomValidity('')">
 					</li>
 				</ul>
 				<div id="login_footer">

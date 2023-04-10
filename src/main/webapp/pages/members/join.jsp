@@ -26,37 +26,38 @@
 				<ul>
 					<li>
 					<label for="id">아이디</label>
-					<input type="text" name="id">
+					<input type="text" name="id" required>
+					<button onClick="return console.log('test');">ID 중복 체크</button>
 					</li>
 
 					<li>
 					<label for="pw">비밀번호</label>
-					<input type="password" name="pw">
+					<input type="password" name="pw" required>
 					</li>
 					
 					<li>
 					<label for="pw">비밀번호 확인</label>
-					<input type="password" name="pw_check">
+					<input type="password" name="pw_check" required>
 					</li>
 					
 					<li>
 					<label for="name">이름</label>
-					<input type="text" name="name">
+					<input type="text" name="name" required>
 					</li>
 					
 					<li>
 					<label for="email">이메일</label>
-					<input type="text" name="email">
+					<input type="text" name="email" required>
 					</li>
 					
 					<li>
 					<label for="address">주소</label>
-					<input type="text" name="address">
+					<input type="text" name="address" required>
 					</li>
 					
 					<li>
 					<label for="phone">전화번호</label>
-					<input type="text" name="phone">
+					<input type="text" name="phone" required>
 					</li>
 				</ul>
 				<div id="login_footer">

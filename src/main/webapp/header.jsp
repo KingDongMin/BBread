@@ -9,7 +9,6 @@
 		<a href="BBreadServlet">
 			<img alt="Brand_logo" src="imgs/logo/BBread_Logo.png" >
 		</a>
-		
 	</div>
 	
 	<div id="menu_wrap">

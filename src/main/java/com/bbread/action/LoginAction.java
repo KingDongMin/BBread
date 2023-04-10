@@ -19,10 +19,13 @@ public class LoginAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context) throws IOException, ServletException {
+		
+		HttpSession session = request.getSession();
+
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-		HttpSession session = request.getSession();
+		
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO loginVo = dao.selectMember(id,pw);
 		
@@ -36,6 +39,8 @@ public class LoginAction implements Action {
 			AdminVO Avo = Adao.selectAdmin(id,pw);
 			if(Avo != null) {
 				session.setAttribute("Avo",Avo);
+				request.setAttribute("message", "로그인 성공");
+				
 				new MainPageAction().execute(request, response, context);
 			}else {
 				request.setAttribute("message", "로그인 실패");
