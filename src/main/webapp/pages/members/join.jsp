@@ -10,7 +10,8 @@
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/login.css">
-<!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
+<script type="text/javascript" src="js/validation.js" defer></script>
+
 </head>
 <body>
 	<div id="wrap">
@@ -26,18 +27,26 @@
 				<ul>
 					<li>
 					<label for="id">아이디</label>
-					<input type="text" name="id" required>
-					<button onClick="return console.log('test');">ID 중복 체크</button>
+					<input type="text" name="id" class="id" required >
+					<input type="hidden" name="re_id" class="re_id">
+					<button type="button" class="ID_check_btn" onClick="check_ID()">ID 중복 체크</button>
+					</li>
+					<li>
+						<p class="ID_warning"></p>
 					</li>
 
 					<li>
 					<label for="pw">비밀번호</label>
-					<input type="password" name="pw" required>
+					<input type="password" name="pw" class="pw" required >
 					</li>
 					
 					<li>
 					<label for="pw">비밀번호 확인</label>
-					<input type="password" name="pw_check" required>
+					<input type="password" name="pw_check" class="re_pw" required >
+					</li>
+					
+					<li>
+					<p class="PW_warning"></p>
 					</li>
 					
 					<li>
@@ -60,9 +69,10 @@
 					<input type="text" name="phone" required>
 					</li>
 				</ul>
+				<p class="warning_message"></p>
 				<div id="login_footer">
 					<a href="BBreadServlet?command=login_page">로그인 화면으로 돌아가기</a>
-					<input class="input_button" type="submit" value="회원가입">
+					<input class="input_button" type="submit" value="회원가입" onClick="checkAll()">
 				</div>
 
 			</form>

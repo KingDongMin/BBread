@@ -101,4 +101,32 @@ public class MemberDAO {
 		return result == 1 ? true:false;
 	}
 	
+	// 아이디 체크
+	public int checkID(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = -1;
+		String sql = "select id from member where id=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}else {
+				result = -1;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return result;
+		
+	}
+	
 }

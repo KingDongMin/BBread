@@ -29,6 +29,8 @@ import com.bbread.action.page.QnADetailPageAction;
 import com.bbread.action.page.QnAeditPageAction;
 import com.bbread.action.page.QnApageAction;
 
+import util.IDcheckAction;
+
 public class ActionFactory {
 
 	private static ActionFactory instance = new ActionFactory();
@@ -94,6 +96,8 @@ public class ActionFactory {
 			action = new QnAeditAction();
 		}else if("QnA_detail_page".equals(command)) {
 			action = new QnADetailPageAction();
+		}else if("ID_Check".equals(command)) {
+			action = new IDcheckAction();
 		}
 
 		return action;
