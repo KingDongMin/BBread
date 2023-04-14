@@ -181,4 +181,30 @@ public class QnADAO {
 		}
 	}
 	
+	// 게시글 삭제
+	public void deleteQnA(int qseq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete qna where qseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }

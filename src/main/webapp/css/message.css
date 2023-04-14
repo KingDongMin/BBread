@@ -10,3 +10,45 @@
 	transform : translate( -50%, -50%);
 	z-index: 2;
 }
+
+#message-wrap{
+	position : absolute;
+	width : 100%;
+	height : 100%;
+	background-color: rgb(40,40,40,0.5);
+	top:0;
+	left:0;
+	display:flex;
+	justify-content: center;
+	align-items: center
+}
+
+#message-box{
+	width: 20rem;
+	height : 10rem;
+	background-color : white;
+	display : flex;
+	flex-direction: column;
+	padding : 1rem;
+	justify-content: space-between;
+}
+
+#message-box p{
+	height : 60%;
+	display : flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#message-box div{
+	width: 100%;
+	height : 40%;
+	display: flex;
+	justify-content: space-around;
+}
+
+#message-box button{
+	height : 2rem;
+	font-size : 1rem;
+	padding : 0.3rem 1rem;
+}

@@ -10,6 +10,8 @@
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/QnA.css">
+<link rel="stylesheet" href="css/message.css">
+<script type="text/javascript" src="js/message.js" defer></script>
 
 </head>
 <body>
@@ -51,18 +53,29 @@
 			<div class="btn-wrap">
 				<button>뒤로 돌아가기</button>
 				<c:if test="${Mvo.id == QnA.mid }">
-				
-				<button onClick="location.href='BBreadServlet?command=QnA_update_page&qseq=${QnA.qseq}'">글 수정</button>
+					<button onClick="location.href='BBreadServlet?command=QnA_update_page&qseq=${QnA.qseq}'">문의 수정</button>
+					<button class="delete_btn" onClick="createMessage(${QnA.qseq})">문의 삭제</button>
 				</c:if>
-				
 			</div>
 			
-
 		</section>
 
 		<!-- Footer Section  -->
 		<c:import url="../../footer.jsp" />
 	</div>
+	
+	
+	
+	
+	<!-- <article id="message-wrap">
+				<div id="message-box">
+					<p>"정말로 삭제하시겠습니까?"</p>
+					<div>
+						<button>확인</button>
+						<button>취소</button>
+					</div>
+				</div>
+	</article> -->
 
 </body>
 </html>

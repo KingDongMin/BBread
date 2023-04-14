@@ -13,6 +13,7 @@ import com.bbread.action.OrderDetailCheckAction;
 import com.bbread.action.ProductDeleteAction;
 import com.bbread.action.ProductListAction;
 import com.bbread.action.ProductUpdateAction;
+import com.bbread.action.QnADeleteAction;
 import com.bbread.action.QnAUpdateAction;
 import com.bbread.action.QnAeditAction;
 import com.bbread.action.page.AddProductPageAction;
@@ -104,6 +105,8 @@ public class ActionFactory {
 			action = new QnAUpdatePageAction();
 		}else if("QnA_update".equals(command)) {
 			action = new QnAUpdateAction();
+		}else if("delete_QnA".equals(command)) {
+			action = new QnADeleteAction();
 		}
 
 		return action;
