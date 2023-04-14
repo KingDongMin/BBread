@@ -37,7 +37,9 @@
 							<td>${item.qseq}</td>
 							<td>${item.title}</td>
 							<td>${item.mid }</td>
-							<td>${item.indate}</td>
+							<td>
+							<fmt:formatDate var="format_indate" pattern="yy년 MM월 dd일" value="${item.indate}" />
+							${format_indate}</td>
 							<td>${item.result}</td>
 						</tr>
 						</c:forEach>

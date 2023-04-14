@@ -24,11 +24,20 @@
 				<tr>
 					<td>글 번호</td>
 					<td>${QnA.qseq }</td>
-					<td>제목</td>
-					<td>${QnA.title}</td>
+					<td>등록일</td>
+					<td>
+					<fmt:formatDate value="${QnA.indate }" var="format_indate" pattern="yy년 MM월 dd일"/>
+					${format_indate}
+					</td>
 					<td>작성자</td>
 					<td>${QnA.mid}</td>
 				</tr>
+				
+				<tr class="inquiry">
+					<td colspan="1">제목</td>
+					<td colspan="5">${QnA.title}</td>
+				</tr>
+				
 
 				<tr class="inquiry">
 					<td colspan="1">문의 글</td>
@@ -39,7 +48,15 @@
 					<td colspan="5">${QnA.answer}</td>
 				</tr>
 			</table>
-			<button> 뒤로 돌아가기</button>
+			<div class="btn-wrap">
+				<button>뒤로 돌아가기</button>
+				<c:if test="${Mvo.id == QnA.mid }">
+				
+				<button onClick="location.href='BBreadServlet?command=QnA_update_page&qseq=${QnA.qseq}'">글 수정</button>
+				</c:if>
+				
+			</div>
+			
 
 		</section>
 

@@ -17,7 +17,7 @@ import com.bbread.action.Action;
 @WebServlet("/BBreadServlet")
 public class BBreadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
     public BBreadServlet() {
         super();
         // TODO Auto-generated constructor stub

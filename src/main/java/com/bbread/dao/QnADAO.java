@@ -160,4 +160,25 @@ public class QnADAO {
 		return qvo;
 	}
 	
+	//게시글 수정
+	public void updateQnA(QnAVO qvo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update qna set title=?, inquiry=?, indate=sysdate where qseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, qvo.getTitle());
+			pstmt.setString(2, qvo.getInquiry());
+			pstmt.setInt(3, qvo.getQseq());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
 }

@@ -13,6 +13,7 @@ import com.bbread.action.OrderDetailCheckAction;
 import com.bbread.action.ProductDeleteAction;
 import com.bbread.action.ProductListAction;
 import com.bbread.action.ProductUpdateAction;
+import com.bbread.action.QnAUpdateAction;
 import com.bbread.action.QnAeditAction;
 import com.bbread.action.page.AddProductPageAction;
 import com.bbread.action.page.CartPageAction;
@@ -26,6 +27,7 @@ import com.bbread.action.page.OrdersPageAction;
 import com.bbread.action.page.ProductDetailPageAction;
 import com.bbread.action.page.ProductUpdatePageAction;
 import com.bbread.action.page.QnADetailPageAction;
+import com.bbread.action.page.QnAUpdatePageAction;
 import com.bbread.action.page.QnAeditPageAction;
 import com.bbread.action.page.QnApageAction;
 
@@ -98,6 +100,10 @@ public class ActionFactory {
 			action = new QnADetailPageAction();
 		}else if("ID_Check".equals(command)) {
 			action = new IDcheckAction();
+		}else if("QnA_update_page".equals(command)) {
+			action = new QnAUpdatePageAction();
+		}else if("QnA_update".equals(command)) {
+			action = new QnAUpdateAction();
 		}
 
 		return action;
