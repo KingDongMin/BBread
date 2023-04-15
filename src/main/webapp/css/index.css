@@ -49,6 +49,7 @@ a{
 	text-decoration: none;
 }
 
+
 #wrap{
 	max-width : 1000px;
 	width : 100%;
@@ -152,8 +153,6 @@ section{
 	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
 	border-radius: 5%;
 	overflow: hidden;
-	
-	
 }
 .product_card>div{
 	width: 100%;
@@ -195,4 +194,6 @@ section{
 .selected{
 	border-bottom: 2px solid black;
 }
+
+
 

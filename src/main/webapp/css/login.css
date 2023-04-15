@@ -1,20 +1,22 @@
 @charset "UTF-8";
 
 section{
-	width : 18rem;
+	width : 50%;
 	height : auto;
 	text-align: center;
 	display : flex;
+	gap:0.3rem;
 	flex-direction: column;
+}
 
-	
+#logo{
+	margin-bottom : 2rem;
 }
 
 #logo a {
 	display : inline-block;
 	width: 50%;
 	height : auto;
-	margin-bottom: 2rem;
 }
 
 #logo a img{
@@ -37,17 +39,59 @@ label{
 	width : 40%;
 }
 
+li > input{
+	width : 60%;
+	padding : 0.3rem 0.5rem;
+	border-radius: 5px;
+}
+
+input::placeholder{
+	color: gray;
+	opacity: 80%;
+}
+
 #login_footer{
 	display : flex;
 	flex-direction: column;
-	gap : 0.3rem;
+	gap : 0.8rem;
 	margin-top : 0.8rem;
 }
 
-a{
-	font-size: 15px;
+#login_footer div{
+	font-size:0.7rem;
+	width: 80%;
+	display : flex;
+}
+
+#login_footer div span,a{
+	padding : 0.3rem 0.5rem;
+}
+
+#login_footer div:hover a{
+	background-color: black;
+	color:white;
+	
+}
+
+.input_button{
+	width:100%;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+}
+
+.input_button:hover{
+	background-color: black;
+	color:white;
+	border-color : white;
+	
 }
 
 input[type=password]{
 	font-family: 'NanumSquare';
+	font-weight: bolder;
+}
+
+.resultMsgBox p{
+	font-size:0.8rem;
+	font-style: italic;
+	color:red;
 }
