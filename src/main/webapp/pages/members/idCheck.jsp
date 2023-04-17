@@ -25,8 +25,10 @@
 						<button type="button" onClick="useID()"> 아이디 사용하기</button>
 					</c:when>	
 					<c:when test="${ID_check_result == 1}">
-						<input class="checkedID" type="text" name="id" value="${userID}" required="required" onload="lockInput()">
-						<button> 아이디 중복 체크</button>
+						<input class="ID_input" type="text" name="id" value="${userID}" required="required">
+						<input class="ID_check" type="hidden"> 
+						<div class="ID_resultMsgBox"></div>
+						<button > 아이디 중복 체크</button>
 						<p>${userID}는 중복된 아이디가 존재합니다.</p>
 					</c:when>
 			

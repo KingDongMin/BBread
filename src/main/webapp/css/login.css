@@ -32,6 +32,7 @@ section{
 li{
 	display : flex;
 	justify-content: space-around;
+	align-items: center;
 	margin : 0.5rem 0;
 }
 
@@ -94,4 +95,28 @@ input[type=password]{
 	font-size:0.8rem;
 	font-style: italic;
 	color:red;
+}
+
+/* 회원 가입 ID */
+
+.joinID_wrap .ID_input{
+	width : 40%;
+}
+.joinID_wrap button{
+	width : 20%;
+	height : 100%;
+	padding : 0.3rem 0.1rem;
+	font-size : 0.6rem;	
+}
+
+button{
+	border-radius: 5px;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+	background-color: black;
+	color : white;
+}
+
+button:hover {
+	background-color: white;
+	color:black;
 }

@@ -7,7 +7,7 @@ const msg = document.createElement('p');
 msg.textContent="아이디는 영문과 숫자만 허용합니다.";
 
 // ID 특정문자제한 정규표현식
-const ID_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+const ID_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| {\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
 
 // ID관련 DOM 이벤트 핸들링
 ID_input.addEventListener('keydown', (e) => checkID_RegExp(e));
@@ -32,10 +32,9 @@ function checkID_focus(e){
 	if(ID_regExp.test(input.value)){
 		input.value = input.value.substring(0, input.value.length -1);
 	}
-	if(input.value.length > 1){
-		msg.remove();
-		ID_input.style.cssText ="border:2px solid green; outline:none";
-	}	
+	
+	msg.remove();
+	ID_input.style.cssText ="border:2px solid green; outline:none";	
 }
 
 // PW관련 DOM
@@ -69,10 +68,8 @@ function checkPW_focus(e){
 	if(PW_regExp.test(input.value)){
 		input.value = input.value.substring(0, input.value.length -1);
 	}
-	if(input.value.length > 1){
 		PW_resultMsg.remove();
-		PW_input.style.cssText ="border:2px solid green; outline:none";
-	}	
+		PW_input.style.cssText ="border:2px solid green; outline:none";	
 }
 
 
