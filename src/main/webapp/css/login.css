@@ -97,6 +97,10 @@ input[type=password]{
 	color:red;
 }
 
+.All_warning{
+	color:red;
+}
+
 /* 회원 가입 ID */
 
 .joinID_wrap .ID_input{

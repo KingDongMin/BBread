@@ -6,6 +6,7 @@ const ID_check = document.querySelector(".ID_check");
 const ID_resultMsgBox = document.querySelector(".ID_resultMsgBox");
 const ID_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
 const ID_warning = document.createElement('p');
+const checkedID = {value:0};
 
 // ID 특정문자 제한
 if(ID_input && ID_resultMsgBox){
@@ -46,14 +47,14 @@ function checkID_focus(e){
 		ID_warning.textContent="아이디 중복체크가 필요합니다.";
 		ID_resultMsgBox.appendChild(ID_warning);
 		ID_input.style.cssText ="border:2px solid yellow; outline:none";
+		checkedID.value = 1;
 	}	
 }
 
 function checkID() {
 
-	if (!ID_input.value) {
+	if (checkedID.value == 0) {
 		// ID 입력하시오 메시지 전달 !
-		ID_warning.textContent = "아이디를 입력해주세요."
 		return ID_input.focus();
 	}
 	const url = "BBreadServlet?command=ID_Check&id=" + ID_input.value;
@@ -90,7 +91,7 @@ const PW_check = document.querySelector(".PW_check");
 const PW_resultMsgBox = document.querySelector(".PW_resultMsgBox");
 const PW_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| {\}\[\]\/?.,;:|\)*~`^\-_+┼<>\%&\'\"\\\(\=]/gi;
 const PW_warning = document.createElement('p');
-let checkedPW = 0;
+let checkedPW = {value:0};
 
 
 if(PW_input && PW_resultMsgBox){
@@ -149,7 +150,7 @@ function checkPW_focus(e){
 	
 	if(PW_input.value == PW_check.value){
 		PW_warning.remove();
-		checkedPW = 1;
+		checkedPW.value = 1;
 		PW_input.style.cssText ="border:2px solid green; outline:none";
 		PW_check.style.cssText ="border:2px solid green; outline:none";
 	}
@@ -158,7 +159,7 @@ function checkPW_focus(e){
 // 이름 유효성검사
 const name_input = document.querySelector('.name_input');
 const name_resultMsgBox = document.querySelector(".name_resultMsgBox");
-const name_regExp = /[0-9 | \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+const name_regExp = /[0-9| \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
 const name_warning = document.createElement('p');
 const checkedName = {value:0};
 name_warning.textContent="이름는 영문과 한글만 허용합니다.";
@@ -173,7 +174,7 @@ if(name_input && name_resultMsgBox){
 // 이메일 // @ 포함 (특수문자제제) 영문 및 @앞에 아이디
 const email_input = document.querySelector('.email_input');
 const email_resultMsgBox = document.querySelector(".email_resultMsgBox");
-const email_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>\#$%&\'\"\\\(\=]/gi;
+const email_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| \{\}\[\]\/?,;:|\)*~`!^\-_+┼<>\#$%&\'\"\\\(\=]/gi;
 const email_warning = document.createElement('p');
 const checkedEmail = {value:0};
 email_warning.textContent ="이메일은 한글과 @을 제외한 특수문자가 제한됩니다.";
@@ -233,7 +234,7 @@ function check_focus(e,regExp, warning, checked){
 		input.value = input.value.substring(0, input.value.length -1);
 	}
 	
-	if(input.value.length <= 3 ){
+	if(input.value.length <= 2 ){
 		input.style.cssText = "border:2px solid red; outline-color:none";
 		return;
 	}
@@ -248,31 +249,34 @@ function checkAll(){
 	const All_warning = document.querySelector(".All_warning")
 	
 	// 아이디 검사
-	if( !ID_check.value || ID_input.value != ID_check.value){
+	
+	if(ID_input){
+		if( !ID_check.value || ID_input.value != ID_check.value){
 		All_warning.textContent = "아이디 중복검사를 해주세요.";
 		return false;
+		}	
 	}
 	
 	// 비밀번호 검사
-	if(!checkedPW){
+	if(checkedPW.value != 1 ||(!PW_input.value || PW_input.value != PW_check.value)){
 		All_warning.textContent = "비밀번호를 확인해주세요.";
 		return false;
 	}
 	
-	if(!checkedName.value){
+	if(checkedName.value != 1 || !name_input.value){
 		All_warning.textContent = "이름을 확인해주세요.";
 		return false;
 	}
 	
-	if(!checkedEmail.value){
+	if(checkedEmail.value != 1 || !email_input.value){
 		All_warning.textContent = "이메일을 확인해주세요.";
 		return false;
 	}
-	if(!checkedAddress.value){
+	if(checkedAddress.value != 1 || !address_input.value){
 		All_warning.textContent = "주소를 확인해주세요.";
 		return false;
 	}
-	if(!checkedPhone.value){
+	if(checkedPhone.value != 1 || !phone_input.value){
 		All_warning.textContent = "전화번호를 확인해주세요.";
 		return false;
 	}

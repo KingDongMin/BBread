@@ -59,7 +59,8 @@ public class MemberDAO {
 				vo.setId(rs.getString("id"));
 				vo.setPw(rs.getString("pass"));
 				vo.setName(rs.getString("name"));
-				vo.setEmail(rs.getString("address"));
+				vo.setEmail(rs.getString("email"));
+				vo.setAddress(rs.getString("address"));
 				vo.setPhone(rs.getString("phone"));
 				vo.setIndate(rs.getTimestamp("indate"));
 			}
