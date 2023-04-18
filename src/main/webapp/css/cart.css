@@ -1,80 +1,166 @@
 @charset "UTF-8";
 
-.carts{
+section{
 	width : 100%;
-	height : auto;
-	padding : 0.5rem 0;
-	margin : 0.5rem 0;
-	display : grid;
-	grid-template-rows: repeat(1fr);
 }
 
-.cart{
-	width : 100%;
-	height : auto;
-	display : grid;
-	grid-template-columns : 1fr 1fr 1fr 1fr;
+h1 {
+	font-size : 1.3rem;
+	margin-bottom: 0.3rem;
+}
+
+/* 카트  */
+.cart_list{
+	width:100%;
+	display:grid;
+	gap : 0.3rem;
+	padding : 0.3rem;
+	grid-template-rows : repeat(1fr);
+	margin-bottom: 2rem;
+	
+}
+.cart_list li{
+	width:100%;
+	display:grid;
+	grid-template-columns:1fr 2fr 2fr 1fr;
 	align-items : center;
-	margin : 0.5rem 0;
-	padding : 0.5rem;
+	
+	border-radius: 5px;
+	overflow: hidden;
 	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
-}
-.img_box{
-	width : 100%;
-	height : auto;
+	
 }
 
+.cart_list .img_box{
+	display:flex;
+	width:100%;
+	height: 5rem;
+	margin : 0;
+}
 .img_box img{
-	width : 100%;
-	height : 100%;
-}
+	display:flex;
+	width:100%;
+	height:100%;
+	object-fit : cover;
 
-.product{
-	width : 100%;
-	height : 100%;
-	display : flex;
+}
+.cart_list li .product{
+	display:flex;
 	flex-direction : column;
-	gap : 0.5rem 0px; 
-	justify-content: center;
-	padding : 0 1rem;
+	width:100%;
+	align-items: center;
+	gap : 0.3rem;
+	font-size : 1.2rem;
 }
 
-.product p{
-	width : 100%;
-	text-align: left;
+.cart_list li .product p:not(p:first-child){
+	opacity : 80%;
+	font-size : 1rem;
 }
 
-.product p+p{
-	font-size: 0.8rem;
-	opacity: 80%;
-}
-
-.quantity_btn{
-	width : 100%;
-	display : grid;
-	grid-template-columns : 1fr 2fr 1fr;
+.cart_list li .quantity_btn{
+	display:flex;
+	width:100%;
 	align-items: center;
 }
-
-.quantity_btn button{
-	padding : 0.5rem 0.8rem;
-	font-size : 1rem;
-	font-weight: bold;
+.cart_list li .quantity_btn button{
+	background-color: black;
+	color:white;
+	font-size : 1.5rem;
+	padding : 0 0.5rem;
+	border-radius: 5px;
+}
+.cart_list li .quantity_btn button:hover{
+	background-color: white;
+	color:black;
+	
 }
 
-.delete_btn{
-	padding : 0.5rem 0.8rem;
+.cart_list li .delete_btn{
+	background-color: black;
+	color:white;
+	width:70%;
+	text-align: center;
 	font-size : 1rem;
+	padding : 0.3rem 0.5rem;
+	border-radius: 5px;
 }
 
-
-.form_box{
+.cart_list li .delete_btn:hover{
+	background-color: white;
+	color:black;
+}
+#cart_item_none{
+	display :block;
 	width : 100%;
-	display : flex;
-	justify-content : center;
+	text-align: center;
+	opacity:60%;
+	font-size : 1.2rem;
+	padding: 5rem 0;
+}
+
+
+
+/* 가격 */
+.price_wrap{
+	margin-bottom : 2rem;
+}
+.price_wrap ul{
+	display:grid;
+	grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
+	width : 100%;
+	height: 100%;
+	align-items: center;
+	text-align: center;
+	padding : 0.3rem;
+}
+.price_wrap ul li{
+	width:100%;
+	
+}
+.price_wrap ul li:nth-child(odd){
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.price_wrap ul li:nth-child(even){
+	font-size : 2rem;
+}
+
+.price_wrap ul li p{
+	padding : 0.5rem 0 ;
+}
+.price_wrap ul li p:first-child{
+	font-size : 1.1rem;
+	background-color: gray;
+	color : white;
+}
+
+
+.price_wrap ul li:last-child p:first-child {
+	background-color: black;
+	color : white;
+}
+
+
+
+/* 주문버튼  */
+.form_box{
+	text-align: center;
+	display:flex;
 }
 
 .form_box .submit_btn{
-	padding : 0.5rem 0.8rem;
-	font-size : 1.3rem;
+	background-color: black;
+	color:white;
+	width:20rem;
+	text-align: center;
+	font-size : 1.5rem;
+	padding : 0.3rem 0.5rem;
+	border-radius: 5px;
+}
+
+.form_box .submit_btn:hover{
+	background-color: white;
+	color:black;
 }

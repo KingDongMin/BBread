@@ -46,7 +46,7 @@ public class CartPageAction implements Action {
 		if(carts != null) {
 			request.setAttribute("carts", carts);
 		}else {
-			request.setAttribute("null_carts", "카트에 담긴 제품이 없습니다.");
+			request.setAttribute("null_carts", "장바구니에 담긴 제품이 없습니다.");
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(pageURL);

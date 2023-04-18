@@ -12,60 +12,82 @@
 <link rel="stylesheet" href="css/cart.css">
 
 <script type="text/javascript" src="js/main.js" defer></script>
+<script type="text/javascript" src="js/cart.js" defer></script>
 
-<!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
 </head>
 <body>
+<c:set var="all_price" value="${0}"></c:set>
+<c:set var="del_fee" value="${3000 }"></c:set>
+
 	<div id="wrap">
 		<!-- Header Section -->
 		<c:import url="../../header.jsp" />
 
 		<!-- outlet Pages Section -->
 		<section>
-			<div class="detail_wrap">
-				<h1>담긴 제품</h1>
-				<ul class="carts">
-				<c:choose>
-					<c:when test="${carts != null }">
-						<c:forEach var="item" items="${carts}">
-							<li class="cart">
-								<div class="img_box">
-									<img alt="item_image" src="upload/${item.p_url}">
-								</div>
-								
-								<div class="product">
-									<p>${item.p_name}</p>
-									<p>￦ ${item.p_price}</p>
-								</div>
-								
-								<div class="quantity_btn">
-									<button>-</button>
-									<p>${item.quantity}</p>
-									<button>+</button>
-								</div>
-								
-								<button class="delete_btn">삭제</button>
-							</li>
-						</c:forEach>
-					</c:when>
-					
-					<c:otherwise>
-						<li>여기</li>
-						<li>${null_carts}</li>
-					</c:otherwise>
-				</c:choose>
-				</ul>
+			<h1>장바구니</h1>
+			<ul class="cart_list">
+			<c:choose>
+				<c:when test="${carts != null }">
+					<c:forEach var="item" items="${carts}">
+						<c:set var="all_price" value="${all_price+item.p_price }"></c:set>
+						<li class="cart_item" value="${item.cseq }">
+							<div class="img_box">
+								<img alt="item_image" src="upload/${item.p_url}">
+							</div>
+							
+							<div class="product">
+								<p>${item.p_name}</p>
+								<p>￦ ${item.p_price}</p>
+							</div>
+						
+							<div class="quantity_btn">
+								<button value="minus">-</button>
+								<p>${item.quantity}</p>
+								<button value="plus">+</button>
+							</div>
+							
+							<button class="delete_btn" value="delete">삭 제</button>
+						</li>
+					</c:forEach>
+				</c:when>
 				
-				<div class="message_box">${message}</div>
-				
-				<div class="form_box">
-					<form action="BBreadServlet" method="post">
-						<input type="hidden" name="command" value="cart_order">
-						<input type="hidden" name="mid" value="">
-						<input class="submit_btn" type="submit" value="주문 하기">
-					</form>
+				<c:otherwise>
+					<li id="cart_item_none">${null_carts}</li>
+				</c:otherwise>
+			</c:choose>
+			</ul>
+			
+			<c:if test="${carts.isEmpty() != null}">
+				<div class="price_wrap">
+					<ul>
+						<li>
+						<p>모든 제품가격</p>
+						<p>￦ ${all_price}</p>
+						</li>
+						<li>+</li>
+						<li>
+						<p>배송비</p>
+						<p>￦ ${del_fee}</p>
+						</li>
+						<li>=</li>
+						<li>
+						<p>총 합계</p>
+						<p>￦ ${all_price+del_fee}</p>
+						</li>
+					</ul>
 				</div>
-			</div>	
+			</c:if>
+			
+			<div class="message_box">${message}</div>
+			
+			<form action="BBreadServlet" method="post" class="form_box">
+				<input type="hidden" name="command" value="cart_order">
+				<input type="hidden" name="mid" value="">
+				<c:if test="${carts.isEmpty() != null}">
+					<input class="submit_btn" type="submit" value="주문 하기">
+				</c:if>
+			</form>
 		</section>
 
 		<!-- Footer Section  -->

@@ -34,6 +34,11 @@ public class CartOrderAction implements Action {
 		
 		// 로그인 유저의 Cart 제품들을 가져온다.
 		List<CartVO> carts = cdao.getCarts(mid);
+		if(carts.isEmpty()) {
+			request.setAttribute("message", "주문 실패");
+			new CartPageAction().execute(request, response, context);
+			return;
+		}
 		
 		// 해당 유저의 주문 인스턴스를 생성 후 주문인스턴스seq 할당
 		int oseq = odao.createOrders(mid);
