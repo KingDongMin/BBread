@@ -26,7 +26,7 @@ public class OrderDAO {
 		ResultSet rs = null;
 		int oseq = 0;
 		
-		String sql = "insert into orders values(orders_seq.nextval,?,sysdate)";
+		String sql = "insert into orders values(orders_seq.nextval,?,sysdate,'n')";
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql, new String[]{"oseq"});

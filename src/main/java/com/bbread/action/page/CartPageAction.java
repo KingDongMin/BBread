@@ -42,13 +42,10 @@ public class CartPageAction implements Action {
 		mid = mvo.getId();
 		List<CartVO> carts = cdao.getCarts(mid);
 		
-		//카트 값 테스트
-		System.out.print("carts값 : "+carts+"/");
+		//카트 값
 		if(carts != null) {
-			System.out.print("carts값 :true");
 			request.setAttribute("carts", carts);
 		}else {
-			System.out.print("carts값 : null /");
 			request.setAttribute("null_carts", "카트에 담긴 제품이 없습니다.");
 		}
 		

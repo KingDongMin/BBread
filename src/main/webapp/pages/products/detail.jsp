@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="css/detail.css">
 <script type="text/javascript" src="js/main.js" defer></script>
 
-<!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
 </head>
 <body>
 	<div id="wrap">

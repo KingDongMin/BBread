@@ -1,20 +1,169 @@
 @charset "UTF-8";
 
-#edit-wrap{
+/* 전체  */
+section{
+	display: flex;
+	flex-direction: column;
+	gap : 2rem;
 	width : 100%;
-	height : auto;
-	display : grid;
-	gap : 0.5rem;
-
+}
+article {
+	margin : 0;
+}
+h1 {
+	font-size : 1.3rem;
+	margin-bottom: 0.3rem;
 }
 
-article{
+.wait{
+	opacity : 60%;
+}
+
+
+
+/* 회원정보 수정  */
+.my_info ul{
+	display : flex;
+	border : 2px solid black;
+	border-radius : 5px;
+	justify-content: space-between;
+	text-align: center;
+	width:100%;
+	height: 100%;
+}
+.my_info ul li{
+	width : 100%;
+	height : 100%;
+	border-right : 2px solid black;
+	display : flex;
+}
+.my_info ul li:last-child{
+	width : 45%;
+}
+
+.my_info ul li:last-child {
+	border-right : 0;
+}
+.my_info ul li span {
+	margin : 0;
+	padding : 0.3rem 0.2rem;
+	text-align: center;
+	display : flex;
+	align-items : center;
+	justify-content: center;
+	font-size : 0.8rem;
+	width : 65%;
+}
+
+.my_info ul li span:first-child {
+	width:35%;
+	margin : 0;
+	padding : 0.3rem 0.2rem;
+	border-right: 2px solid black;
+	font-size : 1rem;
+	color : white;
+	background-color: black;
+}
+
+.my_info ul li:last-child a {
+	width : 100%;
+	height : 100%;
+	padding : 0.3rem 0.2rem;
+	
+	background-color: black;
+	color : white;
+	
+	display : flex;
+	align-items : center;
+	justify-content: center;
+}
+
+.my_info ul li:last-child a:hover {
+	
+	background-color: white;
+	color : black;
+}
+
+/* 주문 현황  */
+.order_list{
+	padding : 0.3rem;
+	border: 2px solid black;
+	border-radius : 5px;
+	display:flex;
+	flex-direction: column;
+	gap : 0.4rem;
+}
+.order_list .order_item_none{
+	text-align: center;
+	padding : 0.5rem;
+	opacity : 80%;
+}
+
+.order_list .order_item{
+	display : grid;
+	grid-template-columns : 1fr 2fr 1fr 1fr 1fr;
+	width : 100%;
+	align-items: center;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+}
+.order_item .img_box{
+	display:flex;
+	width:100%;
+	height: 5rem;
+	margin : 0;
+}
+.img_box img{
+	display:flex;
+	width:100%;
+	height:100%;
+}
+
+/* QnA */
+.QnA_table_wrap{
+	border : 2px solid black;
+	border-radius : 5px;
+	overflow: hidden;
+}
+
+.QnA_table{
+	border-collapse : collapse;
+	text-align : center;
+	width : 100%;
+}
+
+.QnA_table tr, td{
+	padding : 0.5rem;
+	
+}
+.QnA_table tr{
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+}
+.QnA_table tr:first-child ~ tr:hover{
+	cursor : pointer;
+	background-color: #DFDFDF;
+}
+
+.QnA_table tr:first-child td{
+	background-color: black;
+	color : white;
+}
+
+.item_tr_none td{
+	opacity : 60%;
+	padding: 1rem 0;
+	cursor: auto;
+}
+
+
+/* article{
 	width:100%;
 	margin-bottom : 0.5rem;
 }
 
 
-/* member article */
+member article
 
 .member-info{
 	display : flex;
@@ -35,7 +184,7 @@ article{
 }
 
 
-/* order article */
+order article
 .order-list{
 	width : 100%;
 	height : auto;
@@ -83,7 +232,7 @@ article{
 	transform : scale(101%);
 	cursor : pointer;
 }
-
+ */
 
 
 
