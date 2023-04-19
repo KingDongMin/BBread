@@ -21,14 +21,16 @@
 		<section>
 			<h1>Q & A</h1>
 			<c:if test="${message != null }">${message}</c:if>
-			<button class="edit-btn" onClick="location.href='BBreadServlet?command=QnAedit_page'">글쓰기</button>
-			<table class="QnA-list">
+			
+			
+			<div class="table_wrap">
+			<table>
 				<tr>
 					<td>글 번호</td>
 					<td>제 목</td>
 					<td>작성자</td>
 					<td>날 짜</td>
-					<td>상 태</td>
+					<td>답 변</td>
 				</tr>
 				<c:choose>
 					<c:when test="${QnA_list !=null }">
@@ -40,7 +42,15 @@
 							<td>
 							<fmt:formatDate var="format_indate" pattern="yy년 MM월 dd일" value="${item.indate}" />
 							${format_indate}</td>
-							<td>${item.result}</td>
+							
+							<c:choose>
+								<c:when test="${Character.toString(item.result).matches('[n]')}">
+									<td class="wait">대기</td>
+								</c:when>
+								<c:otherwise>
+									<td class="finish">완료</td>
+								</c:otherwise>
+							</c:choose>
 						</tr>
 						</c:forEach>
 					</c:when>
@@ -49,11 +59,11 @@
 							<td>${QnA_list}</td>
 						</tr>
 					</c:otherwise>
-				
 				</c:choose>
-				
 			</table>
-
+			</div>
+			
+			<button class="edit_btn" onClick="location.href='BBreadServlet?command=QnAedit_page'">문의하기</button>
 		</section>
 
 		<!-- Footer Section  -->

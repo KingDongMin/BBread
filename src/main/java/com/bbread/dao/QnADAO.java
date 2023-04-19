@@ -201,6 +201,34 @@ public class QnADAO {
 		
 	}
 	
+	// 문의글 답변
+	public boolean addAnswer(int qseq, String answer) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		boolean result = false;
+		String sql = "update qna set answer=?, result='y' where qseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,answer);
+			pstmt.setInt(2, qseq);
+			
+			rs= pstmt.executeUpdate();
+			if(rs == 1) {
+				result = true;
+			}else if(rs == 0) {
+				result = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		return result;
+	}
+	
 	
 	
 	
