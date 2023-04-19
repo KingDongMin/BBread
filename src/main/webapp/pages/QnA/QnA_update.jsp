@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/QnA_edit.css">
+<link rel="stylesheet" href="css/QnA/edit.css">
+<script type="text/javascript" src="js/main.js" defer></script>
 </head>
 <body>
 	<div id="wrap">
@@ -18,13 +19,15 @@
 
 		<!-- outlet Pages Section -->
 		<section>
-			<h1> QnA 수정 페이지</h1>
+			<h1> QnA 문의글 수정</h1>
 			<c:if test="${message != null }">${message}</c:if>
 			
 			<form action="BBreadServlet" method="post">
 				<input type="hidden" name="command" value="QnA_update">
 				<input type="hidden" name="qseq" value="${QnA.qseq}">
-				<table class="edit-table">
+				
+				<div class="table_wrap">
+				<table>
 				 	<tr>
 				 		<td>작성자</td>
 				 		<td>
@@ -41,21 +44,21 @@
 				 	<tr>
 				 		<td>제목</td>
 				 		<td>
-				 			<input type="text" name="title" value="${QnA.title }" >
+				 			<input class="data" type="text" name="title" value="${QnA.title }" >
 				 		</td>
 				 	</tr>
 				 	<tr>
 				 		<td>문의 내용</td>
 				 		<td>
-				 			<textarea name="inquiry" rows="20" cols="50">${QnA.inquiry}</textarea>
+				 			<textarea class="data" name="inquiry" rows="20" cols="50">${QnA.inquiry}</textarea>
 				 		</td>
 				 	</tr>
 		
 				</table>
-				
-				<div class="btn-box">
-					<input type="submit" value="수정 완료">
+				</div>
+				<div class="btn_wrap">
 					<input type="reset" value="다시 쓰기">
+					<input type="submit" value="수정 완료" onClick="return checkNull()">
 				</div>
 					 		
 			</form>

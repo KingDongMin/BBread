@@ -40,7 +40,7 @@ public class QnAeditAction implements Action {
 		}else {
 			request.setAttribute("message", "문의글 등록이 실패하였습니다.");
 			
-			new QnAeditPageAction().execute(request, response, context);
+			new QnApageAction().execute(request, response, context);
 		}
 		
 		
