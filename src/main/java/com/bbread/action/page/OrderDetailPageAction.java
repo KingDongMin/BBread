@@ -19,7 +19,11 @@ public class OrderDetailPageAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-			
+		String mid = request.getParameter("mid");
+		String indate = request.getParameter("indate");
+		
+		request.setAttribute("mid", mid);
+		request.setAttribute("indate", indate);
 		String pageURL = "pages/admin/orderDetail.jsp";
 		int oseq = Integer.parseInt(request.getParameter("oseq"));
 		
