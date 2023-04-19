@@ -44,4 +44,33 @@ public class AdminDAO {
 		}
 		return vo;
 	}
+	
+	public boolean checkAdmin(AdminVO avo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from admin where id=? and pass=?";
+		boolean check = false;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, avo.getId());
+			pstmt.setString(2, avo.getPass());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				check = true;
+			}else{
+				check = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return check;
+		
+		
+	}
 }
