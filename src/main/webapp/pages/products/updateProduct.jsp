@@ -9,54 +9,74 @@
 <meta charset="UTF-8">
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/login.css">
-<script type="text/javascript" src="js/main.js"></script>
+<link rel="stylesheet" href="css/product.css">
+<script type="text/javascript" src="js/main.js" defer></script>
+<script type="text/javascript" src="js/product.js" defer></script>
+<script type="text/javascript" src="js/message.js" defer></script>
 
 </head>
-<body>
+<body onload="setOption('${product.kind}')">
 	<div id="wrap">
 		<section>
 			<div id="logo">
 				<a> <img alt="Brand_logo" src="imgs/logo/BBread_Logo.png">
 				</a>
 			</div>
-		
+
 			<h1>Update Product</h1>
-			
-			<form action="BBreadServlet?command=update_product" method="post" id="frm" enctype="multipart/form-data">
+
+			<form action="BBreadServlet?command=update_product" method="post"
+				id="frm" enctype="multipart/form-data">
 				<input type="hidden" name="origin_imageURL" value="${product.image}">
 				<input type="hidden" name="pseq" value="${product.pseq}">
-				<ul>
-					<li>
-					<label for="name">제품 이름</label>
-					<input type="text" name="name" value="${product.name}">
-					</li>
 
-					<li>
-					<label for="kind">제품 분류</label>
-					<input type="text" name="kind" value="${product.kind}" >
-					</li>
-					
-					<li>
-					<label for="price">제품 가격</label>
-					<input type="text" name="price" value="${product.price}">
-					</li>
-					
-					<li>
-					<label for="content">제품 내용</label>
-					<textarea rows="20" cols="50" name="content" >${product.content}</textarea>
-					</li>
-					
-					<li>
-					<label for="image">제품 이미지</label>
-					<input type="file" name="imageURL">
-					</li>
-					
-				</ul>
-				<div id="login_footer">
-					<a href="BBreadServlet">메인화면</a>
-					<input class="input_button" type="submit" value="제품 수정">
+				<div class="table_wrap" >
+				<table>
+					<tr>
+						<td>제품 이름</td>
+						<td>
+							<input type="text" name="name" class="name data" value="${product.name}">
+						</td>
+					</tr>
+
+					<tr>
+						<td>제품 분류</td>
+						<td>
+						<select name="kind" class="kind data" >
+								<option value="">선택</option>
+								<option value="바게트">바게트</option>
+								<option value="치아바타">치아바타</option>
+								<option value="포카치아">포카치아</option>
+								<option value="효모">효모</option>
+								<option value="브리오슈">브리오슈</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td >제품 가격</td>
+						<td>
+							<input type="number" name="price" class="price data" value="${product.price}">
+						</td>
+					</tr>
+
+					<tr>
+						<td>제품 이미지</td>
+						<td>
+							<input type="file" name="imageURL" class="img">
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>제품 내용</td>
+						<td>
+							<textarea rows="10" cols="50" name="content"class="content data">${product.content}</textarea>
+						</td>
+					</tr>
+				</table>
 				</div>
+				
+				<button class="submit_btn" type="submit" onClick="return checkNull()">수정하기</button>
 
 			</form>
 

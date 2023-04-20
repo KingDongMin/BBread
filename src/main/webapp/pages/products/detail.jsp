@@ -10,8 +10,10 @@
 <title>BBread</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/message.css">
-<link rel="stylesheet" href="css/detail.css">
+<link rel="stylesheet" href="css/product/detail.css">
 <script type="text/javascript" src="js/main.js" defer></script>
+<script type="text/javascript" src="js/product.js" defer></script>
+<script type="text/javascript" src="js/message.js" defer></script>
 
 </head>
 <body>
@@ -21,40 +23,43 @@
 
 		<!-- outlet Pages Section -->
 		<section>
-			<div class="detail_wrap">
 				
-				<div class="img-box">
-					<img alt="${product.name}_img" src="upload/${product.image}">
-				</div>
-				
-				<div class="content">
-					<div>
+			<div class="img_wrap">
+				<img alt="${product.name}_img" src="upload/${product.image}">
+			</div>
+			
+			<div class="content_wrap">
+				<div >
 					<h2>${product.name}</h2>
-					<h3>${product.kind}</h3>
 					<p>${product.content }</p>
 					<p>￦ ${product.price}</p>
-					</div>
-					<form action="BBreadServlet" method="post">
-						<input type="hidden" name="command" value="add_cart">
-						<input type="hidden" name="pseq" value="${product.pseq}">
-						<div id="quantity_box" onClick="test()" >
-							<button id="minus" value="minus" type="button">-</button>
-							<input id="quantity" type="number" name="quantity" value="1">
-							<button id="plus" value="plus" type="button" >+</button>
-						</div>
-						<input type="submit" value="장바구니에 담기">
-						
-					</form>
-					
-					<c:if test="${message != null }">
-						<div id="message_box">${message }</div>
-					</c:if>
-					
-					<c:if test="${Avo != null}">
-						<button onClick="return window.location.href='http://localhost:8181/BBread/BBreadServlet?command=product_delete&pseq=${product.pseq}'">제품 삭제</button>
-						<button onClick="return window.location.href='http://localhost:8181/BBread/BBreadServlet?command=product_update_page&pseq=${product.pseq}'">제품 수정</button>
-					</c:if>
 				</div>
+				
+				<form action="BBreadServlet" method="post">
+					<input type="hidden" name="command" value="add_cart">
+					<input type="hidden" name="pseq" value="${product.pseq}">
+					
+					<div id="quantity_box" >
+						<button id="minus" value="minus" type="button">-</button>
+						<input  class="data" id="quantity" type="number" name="quantity" value="1">
+						<button id="plus" value="plus" type="button"  >+</button>
+					</div>
+					<c:if test="${Avo == null}">
+					<input type="submit" value="장바구니에 담기" onClick="return checkNull()">
+					</c:if>
+				</form>
+				
+				<%-- <c:if test="${message != null }">
+					<div id="message_box">${message }</div>
+				</c:if> --%>
+				
+				
+				<c:if test="${Avo != null}">
+				<div class="btn_wrap">
+					<button onClick="return createMessage(${product.pseq})">제품 삭제</button>
+					<button onClick="return updateProduct(${product.pseq})">제품 수정</button>
+				</div>
+				</c:if>
 			</div>
 
 		</section>
@@ -62,24 +67,5 @@
 		<!-- Footer Section  -->
 		<c:import url="../../footer.jsp" />
 	</div>
-
-	<script type="text/javascript" defer>
-	
-		//제품 수량 증감
-		const quantityBox = document.getElementById("quantity_box");
-		const quantity = document.getElementById("quantity");
-		quantityBox.onclick = (e)=>{
-			const value = e.target.value;
-			
-			if(value != "plus" && value != "minus" ) return;
-			
-			if(value == "plus"){
-				quantity.value = Number(quantity.value)+ 1;
-			}else if(value=="minus" && Number(quantity.value) > 1 ){
-				quantity.value = Number(quantity.value) - 1;
-			}
-		}
-	
-	</script>
 </body>
 </html>

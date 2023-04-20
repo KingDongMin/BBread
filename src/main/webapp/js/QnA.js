@@ -15,3 +15,8 @@ const answer = document.querySelector('.answer');
 	 
 	 return true;
  }
+
+ 
+ const deleteItem = (qseq) => {
+	location.href=`BBreadServlet?command=delete_QnA&qseq=${qseq}`;
+}

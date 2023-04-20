@@ -149,7 +149,7 @@ public class ProductDAO {
 			pstmt.setString(5, pvo.getImage());
 			pstmt.setString(6, Integer.toString(pvo.getPseq()));
 
-			pstmt.executeQuery();
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			// TODO: handle exception

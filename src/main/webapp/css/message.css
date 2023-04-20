@@ -31,6 +31,9 @@
 	flex-direction: column;
 	padding : 1rem;
 	justify-content: space-between;
+	border: 2px solid black;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+	border-radius: 5px;
 }
 
 #message-box p{
@@ -48,7 +51,15 @@
 }
 
 #message-box button{
-	height : 2rem;
 	font-size : 1rem;
-	padding : 0.3rem 1rem;
+	padding : 0.3rem 0.8rem;
+	background-color: black;
+	color:white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#message-box button:hover{
+	background-color : white;
+	color : black;
 }
