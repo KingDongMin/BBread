@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/login.css">
 <script type="text/javascript" src="js/login.js" defer ></script>
+<script type="text/javascript" src="js/main.js" defer ></script>
 
 </head>
 <body>

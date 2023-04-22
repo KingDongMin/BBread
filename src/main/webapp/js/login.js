@@ -29,8 +29,13 @@ function checkID_RegExp(e){
 // 아이디 포커스아웃 결과
 function checkID_focus(e){
 	let input = e.target;
+	if(!input.value){
+		ID_input.style.cssText = "border:2px solid red; outline-color:red";
+		return;
+	}
 	if(ID_regExp.test(input.value)){
 		input.value = input.value.substring(0, input.value.length -1);
+		return;
 	}
 	
 	msg.remove();
@@ -44,7 +49,7 @@ const PW_resultMsg = document.createElement('p');
 PW_resultMsg.textContent = "비밀번호는 영문,숫자,특수문자(!@#$)만 허용합니다."
 
 // PW 특정문자제한 정규표현식
-const PW_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|{\}\[\]\/?.,;:|\)*~`^\-_+┼<>\%&\'\"\\\(\=]/gi;
+const PW_regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣| {\}\[\]\/?.,;:|\)*~`^\-_+┼<>\%&\'\"\\\(\=]/gi;
 
 // PW관련 DOM 이벤트핸들링
 PW_input.addEventListener('keydown', (e) => checkPW_RegExp(e));
@@ -65,8 +70,13 @@ function checkPW_RegExp(e){
 // 비번 포커스아웃 결과
 function checkPW_focus(e){
 	let input = e.target;
+	if(!input.value){
+		PW_input.style.cssText = "border:2px solid red; outline-color:red";
+		return;
+	}
 	if(PW_regExp.test(input.value)){
 		input.value = input.value.substring(0, input.value.length -1);
+		return;
 	}
 		PW_resultMsg.remove();
 		PW_input.style.cssText ="border:2px solid green; outline:none";	
