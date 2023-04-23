@@ -16,7 +16,9 @@
 <script type="text/javascript" src="js/message.js" defer></script>
 
 </head>
-<body>
+<body onload="popupMessage('${message}')">
+	<c:import url="../../message.jsp" />
+
 	<div id="wrap">
 		<!-- Header Section -->
 		<c:import url="../../header.jsp" />
@@ -48,10 +50,6 @@
 					<input type="submit" value="장바구니에 담기" onClick="return checkNull()">
 					</c:if>
 				</form>
-				
-				<%-- <c:if test="${message != null }">
-					<div id="message_box">${message }</div>
-				</c:if> --%>
 				
 				
 				<c:if test="${Avo != null}">

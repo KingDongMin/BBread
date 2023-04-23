@@ -14,38 +14,41 @@
 	<div id="menu_wrap">
 		<nav id="member_menu">
 			<ul>
-				<c:if test ="${Mvo != null && Avo == null}">
+				<c:if test="${Mvo != null }">
 					<li><a href="BBreadServlet?command=My_page">My Page</a></li>
+					<li><a href="BBreadServlet?command=cart_page">Cart</a></li>
 				</c:if>
 				
 				<c:if test="${Avo != null }">
-					<li style="color:red;">관리자 접속 : ${Avo.name}</li>
 					<li><a href="BBreadServlet?command=AddProduct_page">Add Product</a></li>
+					<li><a href="BBreadServlet?command=orders_page">Orders</a></li>
 				</c:if>
 				
-				<li>
-					<c:if test="${Mvo != null }">
-						<a href="BBreadServlet?command=cart_page">Cart</a>
+				
+				<c:if test ="${Mvo != null || Avo != null}">
+					<li><a href="BBreadServlet?command=QnA_page">Q&A</a></li>
+				</c:if>
+				
+				<li class="user_wrap">
+					<c:if test ="${Mvo != null }">
+						<span>${Mvo.name }</span>
 					</c:if>
-					<c:if test="${Avo != null }">
-						<a href="BBreadServlet?command=orders_page">Orders</a>
+					
+					<c:if test ="${Avo != null }">
+						<span class="admin">관리자 : ${Avo.name }</span>
 					</c:if>
+				
+					<c:choose>
+						<c:when test="${Mvo == null && Avo == null }">
+							<a href="BBreadServlet?command=login_page">Login</a>
+						</c:when>
+						<c:otherwise>
+							<a href="BBreadServlet?command=logout">Logout</a>
+						</c:otherwise>
+					</c:choose>
 				</li>
 				
-				<li>
-					<c:if test ="${Mvo != null || Avo != null}">
-						<li><a href="BBreadServlet?command=QnA_page">Q&A</a></li>
-					</c:if>
-				</li>
 				
-				<c:choose>
-					<c:when test="${Mvo == null && Avo == null }">
-						<li><a href="BBreadServlet?command=login_page">Login</a></li>
-					</c:when>
-					<c:otherwise>
-						<li><a href="BBreadServlet?command=logout">Logout</a></li>
-					</c:otherwise>
-				</c:choose>
 			</ul>
 		</nav>
 		

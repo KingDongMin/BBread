@@ -11,11 +11,12 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/message.css">
 <script type="text/javascript" src="js/main.js" defer></script>
-<!-- index는 메인 페이지를 의미? 메인 페이지가 전체 페이지의 틀이 된다?  -->
+<script type="text/javascript" src="js/message.js" defer></script>
+
 </head>
-<body>
-	
+<body onload="popupMessage('${message}')">
 	<c:import url="message.jsp" />
+	
 	<div id="wrap">
 		<!-- Header Section -->
 		<c:import url="header.jsp" />

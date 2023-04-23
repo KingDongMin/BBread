@@ -31,8 +31,8 @@ public class LoginAction implements Action {
 		
 		if(loginVo != null) {
 			session.setAttribute("Mvo",loginVo);
-			new MainPageAction().execute(request, response, context);
 			request.setAttribute("message", "로그인 성공");
+			new MainPageAction().execute(request, response, context);
 
 		}else{
 			AdminDAO Adao = AdminDAO.getInstance();

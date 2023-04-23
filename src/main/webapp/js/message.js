@@ -1,12 +1,13 @@
-/* 메시지 타이머 기능 (보류)*/
-function messageOut(message){
-	const messageBox = document.getElementById("message_box");
-	console.log("message 함수 호출");
-	const messageP = document.createElement('h1');
-	messageP.textContent = message;
-	messageBox.appendChild(messageP);
-	setTimeout(sessionStorage.removeItem("message"),3000);
-	setTimeout(messageP.remove(), 3000);
+
+//popup message
+function popupMessage(msg){
+	const msgBox = document.querySelector('#message-box')
+	if(!msg || !msgBox) return;
+	msgBox.textContent = msg;
+	msgBox.style.cssText = "top : 10%;"
+	setTimeout(()=>{
+		msgBox.style.cssText = "top : -10%; display:hidden;"
+	},2000);
 }
 
 

@@ -98,11 +98,40 @@ header ul{
 #member_menu ul{
 	float: right;
 	justify-content: space-around;
+	display : flex;
+	align-items: center;
 }
 
 #member_menu ul li{
 	font-size: 15px;
 	margin-left: 20px;
+}
+
+.user_wrap{
+	border:2px solid black;
+	border-radius: 5px;
+	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
+	display:flex;
+	gap:0.2rem;
+	align-items: center;
+	overflow: hidden;
+}
+
+.user_wrap span{
+	padding : 0.2rem 0.3rem;
+}
+
+.user_wrap a{
+	padding : 0.2rem 0.3rem;
+	background-color: black;
+	color : white;
+}
+.user_wrap a:hover{
+	background-color: white;
+	color : black;
+}
+.user_wrap .admin{
+	color : red;
 }
 
 #product_menu{
@@ -115,10 +144,11 @@ header ul{
 }
 
 #product_menu ul li{
-	color : red;
 	font-size: 18px;
 	margin-left: 20px;
 }
+
+
 
 /* Header end  */
 
@@ -153,7 +183,15 @@ section{
 	box-shadow : 2px 2px 5px 0.2px #DFDFDF;
 	border-radius: 5%;
 	overflow: hidden;
+	transition : transform 0.3s;
 }
+
+.product_card:hover{
+	transform : scale(1.1);
+	cursor : pointer
+}
+
+
 .product_card>div{
 	width: 100%;
 	height : 100%;

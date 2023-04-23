@@ -17,8 +17,6 @@ public class LogoutAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context) throws IOException, ServletException {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		request.setAttribute("message", "로그아웃");
-		
 		response.sendRedirect("http://localhost:8181/BBread/BBreadServlet");
 		
 
