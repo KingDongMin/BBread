@@ -50,7 +50,7 @@ public class CartOrderAction implements Action {
 		
 		// 주문 완료 후 해당 유저의 카트아이템 삭제
 		for(CartVO cart : carts) {
-			cdao.deleteCart(cart.getCseq());
+			cdao.removeCart(cart.getCseq());
 		}
 		
 		//비즈니스 처리 후 해당 카트페이지로 포워딩

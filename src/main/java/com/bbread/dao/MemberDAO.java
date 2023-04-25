@@ -129,5 +129,6 @@ public class MemberDAO {
 		return result;
 		
 	}
-	
+
+// member DAO end //
 }

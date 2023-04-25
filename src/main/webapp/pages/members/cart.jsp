@@ -13,9 +13,11 @@
 
 <script type="text/javascript" src="js/main.js" defer></script>
 <script type="text/javascript" src="js/cart.js" defer></script>
+<script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" src="js/ajax/carts.js" defer></script>
 
 </head>
-<body>
+<body onload="getCarts('${Mvo.id}')">
 <c:set var="all_price" value="${0}"></c:set>
 <c:set var="del_fee" value="${3000 }"></c:set>
 
@@ -26,37 +28,7 @@
 		<!-- outlet Pages Section -->
 		<section>
 			<h1>장바구니</h1>
-			<ul class="cart_list">
-			<c:choose>
-				<c:when test="${carts != null }">
-					<c:forEach var="item" items="${carts}">
-						<c:set var="all_price" value="${all_price+item.p_price }"></c:set>
-						<li class="cart_item" value="${item.cseq }">
-							<div class="img_box">
-								<img alt="item_image" src="upload/${item.p_url}">
-							</div>
-							
-							<div class="product">
-								<p>${item.p_name}</p>
-								<p>￦ ${item.p_price}</p>
-							</div>
-						
-							<div class="quantity_btn">
-								<button value="minus">-</button>
-								<p>${item.quantity}</p>
-								<button value="plus">+</button>
-							</div>
-							
-							<button class="delete_btn" value="delete">삭 제</button>
-						</li>
-					</c:forEach>
-				</c:when>
-				
-				<c:otherwise>
-					<li id="cart_item_none">${null_carts}</li>
-				</c:otherwise>
-			</c:choose>
-			</ul>
+			<ul class="cart_list"></ul>
 			
 			<c:if test="${carts.isEmpty() != null}">
 				<div class="price_wrap">

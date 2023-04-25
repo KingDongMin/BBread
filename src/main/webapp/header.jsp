@@ -14,6 +14,7 @@
 	<div id="menu_wrap">
 		<nav id="member_menu">
 			<ul>
+			
 				<c:if test="${Mvo != null }">
 					<li><a href="BBreadServlet?command=My_page">My Page</a></li>
 					<li><a href="BBreadServlet?command=cart_page">Cart</a></li>

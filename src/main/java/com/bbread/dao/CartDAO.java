@@ -136,7 +136,7 @@ public class CartDAO {
 	}
 
 	//해당 유저의 카트제품 삭제
-	public void deleteCart(int cseq) {
+	public void removeCart(int cseq) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "delete cart where cseq=?";
@@ -152,6 +152,27 @@ public class CartDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
+	
+	// 카트 수량 증감
+	public void updateQuantity(int cseq, int quantity) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "update cart set quantity=? where cseq=?";
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, cseq);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	
 	
 	//CartDAO end
 }
