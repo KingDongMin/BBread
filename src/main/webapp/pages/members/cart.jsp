@@ -18,8 +18,6 @@
 
 </head>
 <body onload="getCarts('${Mvo.id}')">
-<c:set var="all_price" value="${0}"></c:set>
-<c:set var="del_fee" value="${3000 }"></c:set>
 
 	<div id="wrap">
 		<!-- Header Section -->
@@ -30,35 +28,33 @@
 			<h1>장바구니</h1>
 			<ul class="cart_list"></ul>
 			
-			<c:if test="${carts.isEmpty() != null}">
-				<div class="price_wrap">
-					<ul>
-						<li>
-						<p>모든 제품가격</p>
-						<p>￦ ${all_price}</p>
-						</li>
-						<li>+</li>
-						<li>
-						<p>배송비</p>
-						<p>￦ ${del_fee}</p>
-						</li>
-						<li>=</li>
-						<li>
-						<p>총 합계</p>
-						<p>￦ ${all_price+del_fee}</p>
-						</li>
-					</ul>
-				</div>
-			</c:if>
+		
+			<div class="price_wrap">
+				<ul>
+					<li>
+					<p>모든 제품가격</p>
+					<p id="all_price"></p>
+					</li>
+					<li>+</li>
+					<li>
+					<p>배송비</p>
+					<p id="del_fee"></p>
+					</li>
+					<li>=</li>
+					<li>
+					<p>총 합계</p>
+					<p id="total_price"></p>
+					</li>
+				</ul>
+			</div>
+			
 			
 			<div class="message_box">${message}</div>
 			
 			<form action="BBreadServlet" method="post" class="form_box">
 				<input type="hidden" name="command" value="cart_order">
 				<input type="hidden" name="mid" value="">
-				<c:if test="${carts.isEmpty() != null}">
-					<input class="submit_btn" type="submit" value="주문 하기">
-				</c:if>
+				<input class="submit_btn" type="submit" value="주문 하기">
 			</form>
 		</section>
 

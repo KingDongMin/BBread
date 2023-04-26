@@ -104,6 +104,7 @@ h1 {
 /* 가격 */
 .price_wrap{
 	margin-bottom : 2rem;
+	display:none;
 }
 .price_wrap ul{
 	display:grid;
@@ -147,7 +148,7 @@ h1 {
 /* 주문버튼  */
 .form_box{
 	text-align: center;
-	display:flex;
+	display:none;
 }
 
 .form_box .submit_btn{
