@@ -16,7 +16,7 @@ import com.bbread.dto.ProductVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class AddProductAction implements Action {
+public class Product_Add_Action implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response, ServletContext context)
 			throws IOException, ServletException {

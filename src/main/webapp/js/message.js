@@ -1,12 +1,12 @@
 
 //popup message
 function popupMessage(msg){
-	const msgBox = document.querySelector('#message-box')
-	if(!msg || !msgBox) return;
-	msgBox.textContent = msg;
-	msgBox.style.cssText = "top : 10%;"
+	const msgPopup = document.querySelector('#message-popup')
+	if(!msg || !msgPopup) return;
+	msgPopup.textContent = msg;
+	msgPopup.style.cssText = "top : 10%;"
 	setTimeout(()=>{
-		msgBox.style.cssText = "top : -10%; display:hidden;"
+		msgPopup.style.cssText = "top : -10%; display:hidden;"
 	},2000);
 }
 
@@ -49,11 +49,6 @@ function createMessage(seq) {
 function cancleMessage(){
 	const message_wrap = document.querySelector("#message-wrap")
 	message_wrap.remove();
-}
-
-function checkMessage(qseq){
-	console.log(`BBreadServlet?command=delete_QnA&qseq=${qseq}`);
-	location.href=`BBreadServlet?command=delete_QnA&qseq=${qseq}`;
 }
 
 

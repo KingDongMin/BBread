@@ -77,14 +77,10 @@
 				</table>
 			</div>
 			
-			
 			<div class="btn_wrap">
 				<button onClick="location.href='BBreadServlet?command=orders_page'">주문현황</button>
 				<button onClick="location.href='BBreadServlet?command=order_check&oseq=${OD_list[0].oseq }'">주문완료</button>
 			</div>
-			
-	
-			
 			
 		</section>
 

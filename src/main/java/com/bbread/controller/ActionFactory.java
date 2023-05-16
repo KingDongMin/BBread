@@ -1,7 +1,7 @@
 package com.bbread.controller;
 
 import com.bbread.action.Action;
-import com.bbread.action.AddProductAction;
+import com.bbread.action.Product_Add_Action;
 import com.bbread.action.CartAction;
 import com.bbread.action.CartOrderAction;
 import com.bbread.action.JoinAction;
@@ -65,7 +65,7 @@ public class ActionFactory {
 		}else if("AddProduct_page".equals(command)) {
 			action = new AddProductPageAction();
 		}else if("add_product".equals(command)) {
-			action = new AddProductAction();
+			action = new Product_Add_Action();
 		}else if("product_detail".equals(command)) {
 			action = new ProductDetailPageAction();
 		}else if("product_delete".equals(command)) {

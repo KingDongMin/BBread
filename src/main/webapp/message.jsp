@@ -5,5 +5,5 @@
 <!-- 메시지 컴포넌트  -->
 
 <c:if test="${message != null }">
-	<div id="message-box"></div>
+	<div id="message-popup"></div>
 </c:if>

@@ -81,7 +81,7 @@
 				<button onClick="location.href='BBreadServlet?command=QnA_page'">Q&A 페이지</button>
 				<c:if test="${Mvo.id == QnA.mid }">
 					<button onClick="location.href='BBreadServlet?command=QnA_update_page&qseq=${QnA.qseq}'">문의 수정</button>
-					<button class="delete_btn" onClick="return deleteItem(${QnA.qseq})">문의 삭제</button>
+					<button class="delete_btn" onClick="return createMessage(${QnA.qseq})">문의 삭제</button>
 				</c:if>
 			</div>
 			
